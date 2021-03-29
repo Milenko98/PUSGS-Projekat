@@ -1,0 +1,62 @@
+div.container
+{
+    position: absolute;
+    top: 200px;
+    right: 400px;
+    background-color: aliceblue;
+    width: 300px;
+    height: 300px;
+    
+    
+
+}
+
+input.unosadrese
+{
+    width: 200px;
+    height: 30px;
+    margin-left: 45px;
+}
+
+input.lozinkatekst
+{
+    width: 200px;
+    height: 30px;
+    margin-left: 45px;
+}
+
+button.logindugme
+{
+    width: 209px;
+    height: 30px;
+    background-color: black;
+    color: white; 
+    margin-left: 45px;
+}
+
+label.mejladresa
+{
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 90px;
+}
+
+p.naslovcreate
+{
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 90px;
+}
+
+label.lozinka
+{
+    margin-top: 10px;
+    margin-left: 110px;
+    font-weight: bold;
+}
+
+a.linkzaboravljenalozinka
+{
+    color: black;
+    margin-left: 80px;
+}
