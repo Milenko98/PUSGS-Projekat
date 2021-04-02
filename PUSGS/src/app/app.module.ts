@@ -1,24 +1,44 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderPrijavaComponent } from './header-prijava/header-prijava.component';
-import { BodyPrijavaComponent } from './body-prijava/body-prijava.component';
-import { LoginPrijavaComponent } from './login-prijava/login-prijava.component';
+import { HeaderPrijavaComponent } from './Components/prijava/header-prijava/header-prijava.component';
+import { BodyPrijavaComponent } from './Components/prijava/body-prijava/body-prijava.component';
+import { LoginPrijavaComponent } from './Components/prijava/login-prijava/login-prijava.component';
+import { HeaderComponent } from './Components/core/header/header.component';
+import { FooterComponent } from './Components/core/footer/footer.component';
+import { SidebarComponent } from './Components/core/sidebar/sidebar.component';
+import { PrijavaComponent } from './Components/prijava/prijava.component';
+import { CoreComponent } from './Components/core/core.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderPrijavaComponent,
     BodyPrijavaComponent,
-    LoginPrijavaComponent
+    LoginPrijavaComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    PrijavaComponent,
+    CoreComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }
