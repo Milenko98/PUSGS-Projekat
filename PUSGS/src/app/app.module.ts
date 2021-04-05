@@ -14,6 +14,11 @@ import { CoreComponent } from './Components/core/core.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { MyIncidentsComponent } from './Components/dashboard/my-incidents/my-incidents.component';
+import { MyWorkPlansComponent } from './Components/dashboard/my-work-plans/my-work-plans.component';
+import { MySafetyDocsComponent } from './Components/dashboard/my-safety-docs/my-safety-docs.component';
+import { DocumentsPieComponent } from './Components/dashboard/documents-pie/documents-pie.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     FooterComponent,
     SidebarComponent,
     PrijavaComponent,
-    CoreComponent
+    CoreComponent,
+    DashboardComponent,
+    MyIncidentsComponent,
+    MyWorkPlansComponent,
+    MySafetyDocsComponent,
+    DocumentsPieComponent
   ],
   imports: [
     BrowserModule,
