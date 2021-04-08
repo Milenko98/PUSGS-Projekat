@@ -19,6 +19,9 @@ import { MyIncidentsComponent } from './Components/dashboard/my-incidents/my-inc
 import { MyWorkPlansComponent } from './Components/dashboard/my-work-plans/my-work-plans.component';
 import { MySafetyDocsComponent } from './Components/dashboard/my-safety-docs/my-safety-docs.component';
 import { DocumentsPieComponent } from './Components/dashboard/documents-pie/documents-pie.component';
+import { RegistracijaComponent } from './Components/registracija/registracija.component';
+import { RegistracijaPodaciComponent } from './Components/registracija/registracija-podaci/registracija-podaci.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,13 +38,17 @@ import { DocumentsPieComponent } from './Components/dashboard/documents-pie/docu
     MyIncidentsComponent,
     MyWorkPlansComponent,
     MySafetyDocsComponent,
-    DocumentsPieComponent
+    DocumentsPieComponent,
+    RegistracijaComponent,
+    RegistracijaPodaciComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

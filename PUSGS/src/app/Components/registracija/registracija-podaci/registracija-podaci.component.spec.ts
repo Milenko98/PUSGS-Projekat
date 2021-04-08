@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidebarComponent } from './sidebar.component';
+import { RegistracijaPodaciComponent } from './registracija-podaci.component';
 
-describe('SidebarComponent', () => {
-  let component: SidebarComponent;
-  let fixture: ComponentFixture<SidebarComponent>;
+describe('RegistracijaPodaciComponent', () => {
+  let component: RegistracijaPodaciComponent;
+  let fixture: ComponentFixture<RegistracijaPodaciComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SidebarComponent ]
+      declarations: [ RegistracijaPodaciComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SidebarComponent);
+    fixture = TestBed.createComponent(RegistracijaPodaciComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
