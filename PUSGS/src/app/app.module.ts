@@ -22,6 +22,9 @@ import { DocumentsPieComponent } from './Components/dashboard/documents-pie/docu
 import { RegistracijaComponent } from './Components/registracija/registracija.component';
 import { RegistracijaPodaciComponent } from './Components/registracija/registracija-podaci/registracija-podaci.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { DocumentsComponent } from './Components/documents/documents.component';
+import { DocumentsCoreComponent } from './Components/documents/documents-core/documents-core.component';
+import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     DocumentsPieComponent,
     RegistracijaComponent,
     RegistracijaPodaciComponent,
+    DocumentsComponent,
+    DocumentsCoreComponent,
+    PlanRadaComponent,
 
   ],
   imports: [

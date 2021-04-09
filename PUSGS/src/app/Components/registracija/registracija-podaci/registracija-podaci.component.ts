@@ -16,10 +16,11 @@ export class RegistracijaPodaciComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
-    this.roles.push("role1");
-    this.roles.push("role2");
-    this.roles.push("role3");
-    this.roles.push("role4");
+    this.roles.push("Dispecer");
+    this.roles.push("Clan ekipe");
+    this.roles.push("Radnik");
+    this.roles.push("Potrosac");
+    this.roles.push("Administrator");
     this.initForm();
   }
 

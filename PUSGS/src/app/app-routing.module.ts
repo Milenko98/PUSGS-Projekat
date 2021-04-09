@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 // import { AppComponent } from './app.component';
 // import { CoreComponent } from './Components/core/core.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { DocumentsCoreComponent } from './Components/documents/documents-core/documents-core.component';
+import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.component';
 import { PrijavaComponent } from './Components/prijava/prijava.component';
-import { RegistracijaPodaciComponent } from './Components/registracija/registracija-podaci/registracija-podaci.component';
 import { RegistracijaComponent } from './Components/registracija/registracija.component';
 
 const routes: Routes = [ {
@@ -26,6 +27,17 @@ const routes: Routes = [ {
   path: "registration",
   component: RegistracijaComponent
 },
+
+{
+  path: "documents",
+  component: DocumentsCoreComponent
+},
+
+{
+  path: "planRada",
+  component: PlanRadaComponent
+},
+
 
 ];
 
