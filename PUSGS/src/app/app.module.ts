@@ -25,6 +25,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { DocumentsComponent } from './Components/documents/documents.component';
 import { DocumentsCoreComponent } from './Components/documents/documents-core/documents-core.component';
 import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.component';
+import { SafetyDocumentsComponent } from './Components/documents/safety-documents/safety-documents.component';
+import { NewSafetyDocsComponent } from './Components/documents/safety-documents/new-safety-docs/new-safety-docs.component';
+import { BasicInfoComponent } from './Components/documents/safety-documents/new-safety-docs/basic-info/basic-info.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.co
     DocumentsComponent,
     DocumentsCoreComponent,
     PlanRadaComponent,
+    SafetyDocumentsComponent,
+    NewSafetyDocsComponent,
+    BasicInfoComponent,
 
   ],
   imports: [
