@@ -1,0 +1,18 @@
+.tabela
+{
+    position: relative;
+    left: 130px;
+    top: -270px;
+    width: 1200px;
+    font-size: 20px;
+    border-spacing: 10px;
+    border-collapse: separate;
+    
+    
+}
+
+td.types
+{
+    padding-right: 10px;
+}
+

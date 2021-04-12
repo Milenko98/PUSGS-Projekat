@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { DocumentsCoreComponent } from './Components/documents/documents-core/documents-core.component';
 import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.component';
+import { SwitchingPlanNewComponent } from './Components/documents/plan-rada/switching-plan-new/switching-plan-new.component';
+import { UnosPodatakaComponent } from './Components/documents/plan-rada/switching-plan-new/unos-podataka/unos-podataka.component';
 import { BasicInfoComponent } from './Components/documents/safety-documents/new-safety-docs/basic-info/basic-info.component';
 import { NewSafetyDocsComponent } from './Components/documents/safety-documents/new-safety-docs/new-safety-docs.component';
 import { SafetyDocumentsComponent } from './Components/documents/safety-documents/safety-documents.component';
@@ -55,6 +57,16 @@ const routes: Routes = [ {
   path: "basicInfo",
   component: BasicInfoComponent
 },
+
+{
+  path: "SwitchingPlanNew",
+  component: SwitchingPlanNewComponent
+},
+
+{
+  path: "BasicInformation",
+  component: UnosPodatakaComponent
+}
 
 
 ];

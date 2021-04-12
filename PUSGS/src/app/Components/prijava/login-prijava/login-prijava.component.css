@@ -24,6 +24,7 @@ input.unosadrese
     width: 200px;
     height: 30px;
     margin-left: 45px;
+    font-size: 15px;
 }
 
 input.lozinkatekst
@@ -31,6 +32,7 @@ input.lozinkatekst
     width: 200px;
     height: 30px;
     margin-left: 45px;
+    font-size: 15px;
 }
 
 button.logindugme
@@ -40,6 +42,7 @@ button.logindugme
     background-color: black;
     color: white; 
     margin-left: 45px;
+    font-size: 15px;
 }
 
 label.mejladresa
@@ -47,6 +50,7 @@ label.mejladresa
     font-weight: bold;
     margin-top: 30px;
     margin-left: 45px;
+    font-size: 15px;
 }
 
 a.naslovcreate
@@ -54,6 +58,7 @@ a.naslovcreate
     font-style: italic;
     font-weight: bold;
     margin-left: 45px;
+    font-size: 15px;
 }
 
 label.lozinka
@@ -61,6 +66,7 @@ label.lozinka
     margin-top: 10px;
     margin-left: 45px;
     font-weight: bold;
+    font-size: 15px;
 }
 
 a.linkzaboravljenalozinka
@@ -68,4 +74,5 @@ a.linkzaboravljenalozinka
     margin-left: 45px;
     font-style: italic;
     font-weight: bold;
+    font-size: 15px;
 }

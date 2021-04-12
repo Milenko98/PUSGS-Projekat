@@ -28,6 +28,12 @@ import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.co
 import { SafetyDocumentsComponent } from './Components/documents/safety-documents/safety-documents.component';
 import { NewSafetyDocsComponent } from './Components/documents/safety-documents/new-safety-docs/new-safety-docs.component';
 import { BasicInfoComponent } from './Components/documents/safety-documents/new-safety-docs/basic-info/basic-info.component';
+import { DugmadiOpcijeComponent } from './Components/documents/plan-rada/dugmadi-opcije/dugmadi-opcije.component';
+import { TabelaPlanovaRadaComponent } from './Components/documents/plan-rada/tabela-planova-rada/tabela-planova-rada.component';
+import { SwitchingPlanNewComponent } from './Components/documents/plan-rada/switching-plan-new/switching-plan-new.component';
+import { StatusniBarComponent } from './Components/documents/plan-rada/switching-plan-new/statusni-bar/statusni-bar.component';
+import { UnosPodatakaComponent } from './Components/documents/plan-rada/switching-plan-new/unos-podataka/unos-podataka.component';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +59,11 @@ import { BasicInfoComponent } from './Components/documents/safety-documents/new-
     SafetyDocumentsComponent,
     NewSafetyDocsComponent,
     BasicInfoComponent,
+    DugmadiOpcijeComponent,
+    TabelaPlanovaRadaComponent,
+    SwitchingPlanNewComponent,
+    StatusniBarComponent,
+    UnosPodatakaComponent,
 
   ],
   imports: [
