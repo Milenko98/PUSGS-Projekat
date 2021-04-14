@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+    </head>
+    
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <table id="tabelaplanova" class="table">
+            
+            <tr>
+                <th>ID 
+                    <button class="blackArrow">
+                        <i class="fas arrow fa-caret-down"></i>
+                    </button>
+                </th>
+                <th>Date of changes 
+                    <button class="blackArrow">
+                        <i class="fas arrow fa-caret-down"></i>
+                    </button>
+                </th>
+                <th>Name 
+                    <button class="blackArrow">
+                        <i class="fas arrow fa-caret-down"></i>
+                    </button>
+                </th>
+                <th>Last Name 
+                    <button class="blackArrow">
+                        <i class="fas arrow fa-caret-down"></i>
+                    </button>
+                </th>
+                <th>Status 
+                    <button class="blackArrow">
+                        <i class="fas arrow fa-caret-down"></i>
+                    </button>
+                </th>
+            </tr>
+  
+
+            <tr *ngFor="let doc of documents">
+               <td>{{doc.wr}}</td>
+               <td>{{doc.dateofchanges}}</td>
+               <td>{{doc.name}} {{counterApprove}}</td>
+               <td>{{doc.lastname}} {{counterCancel}}</td>
+               <td>{{doc.status}} {{counterDeny}}</td>
+            </tr>
+        </table>
+        </div>
+    </div>   
+    <div class="row">
+        <label class="labelunosid">Insert document id:</label> <input type="text" (click)="onIzbor($event)" class="unosid">
+        <button class="btnunosid" type="submit" (click)="onIzmena()">Change</button>
+    </div>
+    <div class="row">
+        <button type="button" class="approve" (click)="onApprove()">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="deny" (click)="onDeny()">
+            <i class="fas fa-times"></i>
+        </button>
+        <button type="button" class="cancel" (click)="onCancel()">
+            <i class="fa fa-ban" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+</body>
+</html>
+

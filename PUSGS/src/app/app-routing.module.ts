@@ -10,8 +10,15 @@ import { UnosPodatakaComponent } from './Components/documents/plan-rada/switchin
 import { BasicInfoComponent } from './Components/documents/safety-documents/new-safety-docs/basic-info/basic-info.component';
 import { NewSafetyDocsComponent } from './Components/documents/safety-documents/new-safety-docs/new-safety-docs.component';
 import { SafetyDocumentsComponent } from './Components/documents/safety-documents/safety-documents.component';
+import { WrBasicInfoComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-basic-info/wr-basic-info.component';
+import { WrHistoryOfStateChangesComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/wr-history-of-state-changes.component';
+import { WorkRequestNewComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-new.component';
+import { WorkRequestComponent } from './Components/documents/work-request/work-request.component';
 import { PrijavaComponent } from './Components/prijava/prijava.component';
 import { RegistracijaComponent } from './Components/registracija/registracija.component';
+import {ActivatedRoute} from '@angular/router';
+import { WrMultimediaComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-multimedia/wr-multimedia.component';
+import { WrEquipmentComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-equipment/wr-equipment.component';
 
 const routes: Routes = [ {
   path: "",
@@ -66,7 +73,47 @@ const routes: Routes = [ {
 {
   path: "BasicInformation",
   component: UnosPodatakaComponent
-}
+},
+
+{
+  path: "workRequest",
+  component: WorkRequestComponent,
+
+  children:[
+  ]
+},
+
+{
+  path: "WorkRequestNew",
+  component: WorkRequestNewComponent,
+  children:[
+    {
+      path: "wrHistoryOfStateChanges",
+      component: WrHistoryOfStateChangesComponent
+    },
+    {
+      path: "wrBasicInfo",
+      component: WrBasicInfoComponent
+    },
+    {
+      path: "wrMultimedia",
+      component: WrMultimediaComponent
+    },
+    {
+      path: "wrEquipment",
+      component: WrEquipmentComponent
+    }
+  ]
+},
+
+// {
+//   path: "wrBasicInfo",
+//   component: WrBasicInfoComponent
+// },
+// {
+//   path: "wrHistoryOfStateChanges",
+//   component: WrHistoryOfStateChangesComponent
+// }
 
 
 ];

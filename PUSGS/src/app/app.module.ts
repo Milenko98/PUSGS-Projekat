@@ -33,6 +33,15 @@ import { TabelaPlanovaRadaComponent } from './Components/documents/plan-rada/tab
 import { SwitchingPlanNewComponent } from './Components/documents/plan-rada/switching-plan-new/switching-plan-new.component';
 import { StatusniBarComponent } from './Components/documents/plan-rada/switching-plan-new/statusni-bar/statusni-bar.component';
 import { UnosPodatakaComponent } from './Components/documents/plan-rada/switching-plan-new/unos-podataka/unos-podataka.component';
+import { WorkRequestComponent } from './Components/documents/work-request/work-request.component';
+import { TableButtonsComponent } from './Components/documents/work-request/table-buttons/table-buttons.component';
+import { TableComponent } from './Components/documents/work-request/table/table.component';
+import { WorkRequestNewComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-new.component';
+import { WorkRequestMenuComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/work-request-menu.component';
+import { WrBasicInfoComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-basic-info/wr-basic-info.component';
+import { WrHistoryOfStateChangesComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/wr-history-of-state-changes.component';
+import { WrMultimediaComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-multimedia/wr-multimedia.component';
+import { WrEquipmentComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-equipment/wr-equipment.component';
 
 
 @NgModule({
@@ -64,7 +73,15 @@ import { UnosPodatakaComponent } from './Components/documents/plan-rada/switchin
     SwitchingPlanNewComponent,
     StatusniBarComponent,
     UnosPodatakaComponent,
-
+    WorkRequestComponent,
+    TableButtonsComponent,
+    TableComponent,
+    WorkRequestNewComponent,
+    WorkRequestMenuComponent,
+    WrBasicInfoComponent,
+    WrHistoryOfStateChangesComponent,
+    WrMultimediaComponent,
+    WrEquipmentComponent,
   ],
   imports: [
     BrowserModule,

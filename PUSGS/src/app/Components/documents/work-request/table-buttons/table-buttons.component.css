@@ -1,0 +1,42 @@
+.novi
+{
+    position: relative;
+    top: 20px;
+    left: -120px;
+    width: 150px;
+    height: 50px;
+    margin-right: 200px;
+    font-size: 20px;
+}
+
+.svadokumenta
+{
+    position: relative;
+    top: 20px;
+    left: -200px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.mojadokumenta
+{
+    position: relative;
+    top: -30px;
+    left: 305px;
+    width: 150px;
+    height: 50px;
+    margin-right: 200px;
+    font-size: 20px;
+}
+
+.filteri
+{
+    position: relative;
+    top: -80px;
+    left: 1150px;
+    width: 150px;
+    height: 50px;
+    margin-right: 200px;
+    font-size: 20px;
+}
