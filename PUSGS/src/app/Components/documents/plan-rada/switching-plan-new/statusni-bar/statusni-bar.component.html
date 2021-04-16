@@ -9,20 +9,20 @@
 
 <div class="container">
     <div class="menu">
-        <button routedLink="/BasicInformation" type="button">Basic Informations</button>
+        <button routerLink="./BasicInformations" type="button">Basic Informations</button>
         <br>
-        <button type="button">History of state changes</button>
+        <button routerLink="./swHistoryOfStateChanges" type="button">History of state changes</button>
         <br>
-        <button type="button">Multimedia attachments</button>
+        <button routerLink="./swMiltimediaAttachments" type="button">Multimedia attachments</button>
         <br>
-        <button type="button">Equipment</button>
+        <button routerLink="./swEquipment" type="button">Equipment</button>
         <br>
-        <button type="button">Switching instructions</button>
+        <button routerLink="./swSwitchingInstructions" type="button">Switching instructions</button>
     </div>
 
 </div>
 
-<app-unos-podataka></app-unos-podataka>
+<router-outlet></router-outlet>
 
 </body>
 

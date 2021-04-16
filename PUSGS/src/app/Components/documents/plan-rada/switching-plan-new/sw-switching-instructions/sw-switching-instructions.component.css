@@ -1,0 +1,42 @@
+
+button.dugmesacuvaj
+{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    margin-left: 350px;
+    
+}
+
+.tabela
+{
+    position: relative;
+    left: 330px;
+    top: -270px;
+    width: 1100px;
+    font-size: 20px;
+    border-spacing: 10px;
+    border-collapse: separate; 
+    border-color: black;
+    border: solid black 2px;
+}
+
+button.dugmeponisti
+{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    background-color: red;
+    border: solid red;
+    margin-left: 350px;
+    
+}
+
+div.container
+{
+    position: relative;
+    margin-top: 280px;
+}
+
+
+

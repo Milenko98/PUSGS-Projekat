@@ -6,13 +6,52 @@
     width: 1200px;
     font-size: 20px;
     border-spacing: 10px;
-    border-collapse: separate;
-    
-    
+    border-collapse: separate;     
+}
+
+button.checkcircle
+{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+}
+
+button.plussquare
+{
+    width: 30px;
+    height: 30px;
+}
+
+button.trash
+{
+    width: 30px;
+    height: 30px;
+}
+
+button.trashall
+{
+    width: 30px;
+    height: 30px;
 }
 
 td.types
 {
     padding-right: 10px;
+}
+
+button.dugmesacuvaj
+{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+}
+
+button.dugmeponisti
+{
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    background-color: red;
+    border: solid red;
 }
 

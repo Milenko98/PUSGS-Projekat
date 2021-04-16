@@ -42,6 +42,18 @@ import { WrBasicInfoComponent } from './Components/documents/work-request/table-
 import { WrHistoryOfStateChangesComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/wr-history-of-state-changes.component';
 import { WrMultimediaComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-multimedia/wr-multimedia.component';
 import { WrEquipmentComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-equipment/wr-equipment.component';
+import { SwHistoryOfStateChangesComponent } from './Components/documents/plan-rada/switching-plan-new/sw-history-of-state-changes/sw-history-of-state-changes.component';
+import { SwMultimediaAttachmentsComponent } from './Components/documents/plan-rada/switching-plan-new/sw-multimedia-attachments/sw-multimedia-attachments.component';
+import { SwEquipmentComponent } from './Components/documents/plan-rada/switching-plan-new/sw-equipment/sw-equipment.component';
+import { SwSwitchingInstructionsComponent } from './Components/documents/plan-rada/switching-plan-new/sw-switching-instructions/sw-switching-instructions.component';
+import { NotificationComponent } from './Components/notification/notification.component';
+import { SideBarNotificationComponent } from './Components/notification/side-bar-notification/side-bar-notification.component';
+import { AllNotificationsComponent } from './Components/notification/all-notifications/all-notifications.component';
+import { UnreadNotificationsComponent } from './Components/notification/unread-notifications/unread-notifications.component';
+import { InfoNotificationsComponent } from './Components/notification/info-notifications/info-notifications.component';
+import { ErrorNotificationsComponent } from './Components/notification/error-notifications/error-notifications.component';
+import { SuccessNotificationsComponent } from './Components/notification/success-notifications/success-notifications.component';
+import { WarningNotificationsComponent } from './Components/notification/warning-notifications/warning-notifications.component';
 
 
 @NgModule({
@@ -82,6 +94,18 @@ import { WrEquipmentComponent } from './Components/documents/work-request/table-
     WrHistoryOfStateChangesComponent,
     WrMultimediaComponent,
     WrEquipmentComponent,
+    SwHistoryOfStateChangesComponent,
+    SwMultimediaAttachmentsComponent,
+    SwEquipmentComponent,
+    SwSwitchingInstructionsComponent,
+    NotificationComponent,
+    SideBarNotificationComponent,
+    AllNotificationsComponent,
+    UnreadNotificationsComponent,
+    InfoNotificationsComponent,
+    ErrorNotificationsComponent,
+    SuccessNotificationsComponent,
+    WarningNotificationsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="slikaa">
+            <img [src]="url" class="img"><br>
+            <div class="choose_file">
+                <button class=" btn dugmedodajsliku btn-primary" type="button">Choose Image</button>
+                <input name="img" type="file" class="form-control" formControlName="slika" (change)="onSelectFile($event)" accept="image/*" />
+            </div>
+        </div>
+    </body>
+</html>
+

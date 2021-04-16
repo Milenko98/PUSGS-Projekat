@@ -10,20 +10,46 @@
     
 <div class="col-md-6">
     <div class="container-fluid">
-        <form name="forma" class="forma">
+        <form name="forma" class="forma" [formGroup]="courseForm" (ngSubmit)="onSubmit()">
             <br>
             
-                    <label class="mejladresa">Email Address:</label>
+            <div class="form-group" [ngClass]="{'has-error' : courseForm.get('email')?.errors && (courseForm.get('email')?.touched || courseForm.get('email')?.dirty)}">
+                    <label for="email" class="mejladresa control-label">Email Address:</label>
                     <br>
 
-                    <input type="text" id="mejladresa" class="unosadrese" placeholder="example@email"> 
+                    <input type="text" id="mejladresa" class="unosadrese form-control" formControlName="email" placeholder="example@email"> 
+
+                    <div class="help-block" *ngIf = "courseForm.get('email')?.errors && courseForm.get('email')?.touched || courseForm.get('email')?.dirty">
+                        <div class="mejlobavezan" *ngIf="courseForm.controls.email.errors?.required">
+                            Email is required!
+                        </div>
+                        <div *ngIf="courseForm.controls.email.errors?.email">
+                            Email is not valid!
+                        </div>
+                    </div>
+            </div>
                     <br>  
                     <br>               
                 
-                    <label class="lozinka">Password:</label>
+
+                <div class="form-group" [ngClass]="{'has-error' : courseForm.get('lozinka')?.errors && (courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty)}">
+                    <label for="lozinka" class="lozinka control-label">Password:</label>
                     <br>
 
-                    <input class="lozinkatekst" type="password" id="lozinka" placeholder="Enter password"> 
+                    <input minlength="5" class="lozinkatekst form-control" formControlName="lozinka" type="password" id="lozinka" placeholder="Enter password"> 
+                    <div class="help-block" *ngIf = "courseForm.get('lozinka')?.errors && courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty">
+                        <div class="lozinkaobavezna" *ngIf="courseForm.controls.lozinka.errors?.required">
+                            Password is required!
+                        </div>
+
+                        <div *ngIf="courseForm.controls.lozinka.errors?.pattern">
+                            Password must begin with letter and must contains numbers with big or small letters!
+                        </div>
+
+                                                        
+                    </div>
+                </div>
+
                     <br>  
                     <a class="linkzaboravljenalozinka" href="#">Forgot your password?</a> 
                     <br>          
@@ -38,6 +64,8 @@
         </form>   
     </div>
 </div>
+
+
 </body>
 </html>
 

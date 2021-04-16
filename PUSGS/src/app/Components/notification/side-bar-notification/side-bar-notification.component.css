@@ -1,0 +1,43 @@
+.menu
+{
+    position: relative;
+    top: 20px;
+    left: -100px;
+    width: 290px;
+    height: 374px;
+    border-style: solid;
+    border-color: black;
+    font-size: 20px;
+    
+}
+
+i.check
+{
+    color: green;
+    
+}
+
+i.info
+{
+    color: rgb(0, 204, 255);
+}
+
+i.warnings
+{
+    color: orange;
+}
+
+i.errors
+{
+    color: rgb(231, 17, 17);
+}
+
+button
+{
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 205px;
+    height: 60px;
+    border-style: none;
+    background-color: white;
+}

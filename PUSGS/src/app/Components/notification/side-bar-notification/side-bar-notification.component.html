@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="menu">
+                <button routerLink="./AllNotifications" type="button">All Notifications</button>
+                <br>
+                <button routerLink="./UnreadNotifications" type="button">Unread Notifications</button>
+                <br>
+                <button routerLink="./ErrorNotifications" type="button">Errors</button><i class="fas errors fa-times-circle"></i>
+                <br>
+                <button routerLink="./InfoNotifications" type="button">Info</button><i class="fas info fa-info-circle"></i>
+                <br>
+                <button routerLink="./SuccessNotifications" type="button">Success</button><i class="fas check fa-check"></i>
+                <br>
+                <button routerLink="./WarningNotifications" type="button">Warnings</button><i class="fas warnings fa-exclamation-triangle"></i>
+            </div>
+        
+        </div>
+
+        <router-outlet></router-outlet>
+    </body>
+
+</html>

@@ -37,80 +37,32 @@
                     </button>
                 </th>
             </tr>
+
+            <tr *ngFor = "let podaci of podaci_za_tabelu">
+
+                <td>
+                    {{podaci.id}}
+                </td>
+
+                <td>
+                    {{podaci.StartDate}}
+                </td>
+
+                <td>
+                    {{podaci.PhoneNumber}}
+                </td>
+
+                <td>
+                    {{podaci.Status}}
+                </td>
+
+                <td>
+                    {{podaci.Address}}
+                </td>
+
+            </tr>
   
-
-            <tr>
-                <td>
-                    WR1
-                </td>
-                <td>
-                    13.08.2018.
-                </td>
-                <td>
-                    060978064
-                </td>
-                <td>
-                    Draft
-                </td>
-                <td>
-                    Vladike Cirica 10
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    WR2
-                </td>
-                <td>
-                    13.08.2018.
-                </td>
-                <td>
-                    064569257
-                </td>
-                <td>
-                    Draft
-                </td>
-                <td>
-                    Suboticka 10
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    WR3
-                </td>
-                <td>
-                    13.08.2018.
-                </td>
-                <td>
-                    060493128
-                </td>
-                <td>
-                    Submitted
-                </td>
-                <td>
-                    Mileve Marica 45 
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    WR4
-                </td>
-                <td>
-                    13.08.2018.
-                </td>
-                <td>
-                    063786125
-                </td>
-                <td>
-                    Submitted
-                </td>
-                <td>
-                   Masarikova 2
-                </td>
-            </tr>
-
+                                           
             <script>    
 
                 $(document).ready(function () {

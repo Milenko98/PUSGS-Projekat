@@ -4,7 +4,7 @@ div.container-fluid
     top: 80px;
     background-color: aliceblue;
     width: 300px;
-    height: 300px;   
+    height: 400px;   
 }
 @media screen and (max-width:992px)
 {
@@ -17,6 +17,18 @@ div.container-fluid
     height: 300px; 
     left: 22%;  
 }
+}
+
+div.lozinkaobavezna
+{
+    text-align: center;
+    font-size: 13px;
+}
+
+div.mejlobavezan
+{
+    text-align: center;
+    font-size: 13px;
 }
 
 input.unosadrese

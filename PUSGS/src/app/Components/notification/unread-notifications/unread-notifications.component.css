@@ -1,0 +1,75 @@
+i.errors
+{
+    color: rgb(44, 38, 39);
+}
+
+i.warnings
+{
+    color: rgb(17, 17, 16);
+}
+
+div.container
+{
+    position: relative;
+    font-size: 10px;
+    margin-top: -300px;
+    margin-left: 600px;
+    text-align: left;
+    scroll-behavior: inherit;
+ 
+
+    border-radius: 4px;
+    width: 800px;
+    height: 500px;
+}
+
+div.btndiv
+{
+    margin-left: 500px;
+    margin-top: 200px;
+   
+}
+
+div.warningdiv
+{
+    background-color: rgb(236, 206, 35);
+    font-size: 20px;
+    text-align: left;
+    border: solid black 2px;
+    border-radius: 16px;
+}
+
+div.errordiv
+{
+    background-color: rgb(236, 96, 96);
+    font-size: 20px;
+    text-align: left;
+    border: solid black 2px;
+    border-radius: 16px;
+}
+
+div.infodiv
+{
+    background-color: rgb(57, 165, 228);
+    font-size: 20px;
+    text-align: left;
+    border: solid black 2px;
+    border-radius: 16px;
+}
+
+button.allread
+{
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    
+}
+
+button.clearall
+{
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    margin-left: 20px;
+    
+}

@@ -1,0 +1,50 @@
+i.errors
+{
+    color: rgb(44, 38, 39);
+}
+
+div.container
+{
+    position: relative;
+    font-size: 10px;
+    margin-top: -300px;
+    margin-left: 600px;
+    text-align: left;
+    scroll-behavior: inherit;
+ 
+
+    border-radius: 4px;
+    width: 800px;
+    height: 500px;
+}
+
+div.errordiv
+{
+    background-color: rgb(236, 96, 96);
+    font-size: 20px;
+    text-align: left;
+    border: solid black 2px;
+    border-radius: 16px;
+}
+
+div.btndiv
+{
+    margin-left: 500px;
+    margin-top: 200px;
+   
+}
+
+button.allread
+{
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+}
+
+button.clearall
+{
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    margin-left: 20px;
+}

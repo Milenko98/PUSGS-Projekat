@@ -1,0 +1,88 @@
+.oprema
+{
+    position: relative;
+    margin-left: 350px;
+    top:-200px;
+}
+
+.labelaizbor
+{
+    position: relative;
+    font-size: 20px;
+}
+.select
+{
+    position: relative;
+    width: 80px;
+    height: 40px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.btndodaj
+{
+    position: relative;
+    top: 60px;
+    width: 80px;
+    height: 40px;
+    font-style: italic;
+    font-size: 18px;
+    left: -190px;   
+
+}
+
+.btndodaj:hover{
+    background-color: lightgray;
+    transition-duration: 0.4s;
+}
+
+.table
+{
+    position: relative;
+    left: 350px;
+    width: 1100px;
+    top:-230px;
+    border:rgb(209, 203, 203);
+    border-width: 2px;
+    border-style: solid;
+
+}
+
+th
+{
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    width: 500px;
+    text-align: left;  
+}
+
+td
+{
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    border: 0cm;
+}
+
+
+.blackArrow
+{
+    position: relative;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-style: none;
+}
+
+.arrow
+{
+    width: 0px;
+    height: 0px;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: -15px;
+    left: -10px; 
+}
