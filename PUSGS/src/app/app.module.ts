@@ -54,6 +54,15 @@ import { InfoNotificationsComponent } from './Components/notification/info-notif
 import { ErrorNotificationsComponent } from './Components/notification/error-notifications/error-notifications.component';
 import { SuccessNotificationsComponent } from './Components/notification/success-notifications/success-notifications.component';
 import { WarningNotificationsComponent } from './Components/notification/warning-notifications/warning-notifications.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MapComponent } from './Components/map/map.component';
+import { TeamsComponent } from './Components/teams/teams.component';
+import {MatIconModule} from '@angular/material/icon';
+import { NewTeamComponent } from './Components/teams/new-team/new-team.component';
 
 
 @NgModule({
@@ -106,13 +115,22 @@ import { WarningNotificationsComponent } from './Components/notification/warning
     ErrorNotificationsComponent,
     SuccessNotificationsComponent,
     WarningNotificationsComponent,
+    MapComponent,
+    TeamsComponent,
+    NewTeamComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     MDBBootstrapModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

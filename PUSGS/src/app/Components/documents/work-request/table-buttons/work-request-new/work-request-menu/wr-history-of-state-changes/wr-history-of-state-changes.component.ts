@@ -1,6 +1,10 @@
 import { DOCUMENT } from '@angular/common';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-wr-history-of-state-changes',
@@ -9,34 +13,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WrHistoryOfStateChangesComponent implements OnInit {
 
-  counterApprove! : number;
+  displayedColumns: string[] = ['wr', 'dateofchanges', 'name', 'lastname', 'status'];
+  dataSource: MatTableDataSource<UserData>;
+  counterApprove!: number;
   counterDeny! : number;
   counterCancel! : number;
-  documents! : Array<any>;
-  wr! : string;
-  dateofchanges! : string;
-  name! : string;
-  lastname! : string;
-  status! : string;
-  choose! : string;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor() {
+    // Create 100 users
+    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+    const users = [{wr:"wr1", dateofchanges:"23.1.2010", name:"Milan", lastname:"Zinic",status:"No Status"},
+    {wr:"wr2", dateofchanges:"24.1.2010", name:"Jovan", lastname:"Pilic",status:"No Status"},
+    {wr:"wr3", dateofchanges:"25.1.2010", name:"Ivan", lastname:"Kijic",status:"No Status"},
+    {wr:"wr4", dateofchanges:"26.1.2010", name:"Goran", lastname:"Finic",status:"No Status"},
+    {wr:"wr5", dateofchanges:"27.1.2010", name:"Stefan", lastname:"Dimic",status:"No Status"},
+    {wr:"wr6", dateofchanges:"28.1.2010", name:"Milenko", lastname:"Siljic",status:"No Status"}]
 
-    this.documents = [
-      {wr : "WR1", dateofchanges: "12.3.2021", name : "Name", lastname : "Last Name", status : "No status"},
-      {wr : "WR2", dateofchanges: "12.3.2021", name : "Name", lastname : "Last Name", status : "No status"},
-      {wr : "WR3", dateofchanges: "12.3.2021", name : "Name", lastname : "Last Name", status : "No status"},
-      {wr : "WR4", dateofchanges: "12.3.2021", name : "Name", lastname : "Last Name", status : "No status"},
-      {wr : "WR5", dateofchanges: "12.3.2021", name : "Name", lastname : "Last Name", status : "No status"},
-    ]
-    this.counterApprove = 0;
-    this.counterCancel = 0;
-    this.counterDeny = 0;
-    this.choose = "";
-   }
-
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource(users);
+  }
   ngOnInit(): void {
+  }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 
@@ -54,18 +67,12 @@ export class WrHistoryOfStateChangesComponent implements OnInit {
   {
     this.counterCancel++;;
   }
+}
 
-  onIzmena():void
-  {
-    if(this.choose !="" && this.documents.find(x=>x.wr == this.choose)==true){
-      let doc = this.documents.find(x=>x.wr == this.choose);
-      doc.status = "neki izbor";
-      this.documents[doc] = doc;
-    }
-  }
-
-  onIzbor(event)
-  {
-    this.choose = event.target.value;
-  }
+export interface UserData {
+  wr: string;
+  dateofchanges : string;
+  name: string;
+  lastname: string;
+  status: string;
 }

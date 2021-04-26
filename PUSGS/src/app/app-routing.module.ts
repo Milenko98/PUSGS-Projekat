@@ -30,6 +30,9 @@ import { InfoNotificationsComponent } from './Components/notification/info-notif
 import { ErrorNotificationsComponent } from './Components/notification/error-notifications/error-notifications.component';
 import { SuccessNotificationsComponent } from './Components/notification/success-notifications/success-notifications.component';
 import { WarningNotificationsComponent } from './Components/notification/warning-notifications/warning-notifications.component';
+import { MapComponent } from './Components/map/map.component';
+import { TeamsComponent } from './Components/teams/teams.component';
+import { NewTeamComponent } from './Components/teams/new-team/new-team.component';
 
 const routes: Routes = [ {
   path: "",
@@ -184,16 +187,19 @@ const routes: Routes = [ {
   ]
 },
 
-// {
-//   path: "wrBasicInfo",
-//   component: WrBasicInfoComponent
-// },
-// {
-//   path: "wrHistoryOfStateChanges",
-//   component: WrHistoryOfStateChangesComponent
-// }
+{
+  path: "map",
+  component: MapComponent
+},
 
-
+{
+  path: "teams",
+  component: TeamsComponent
+},
+{
+  path: "NewTeam",
+  component: NewTeamComponent
+}
 ];
 
 @NgModule({

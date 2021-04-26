@@ -1,58 +1,59 @@
-<html>
-    <head>
-        <meta name="viewport" charset="utf-8"
-        content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <div class="svaoprema">
-            <table id="tabelaplanova" class="table">
-            
-                <tr>
-                    <th>ID 
-                        <button class="blackArrow">
-                            <i class="fas arrow fa-caret-down"></i>
-                        </button>
-                    </th>
-                    <th>Name 
-                        <button class="blackArrow">
-                            <i class="fas arrow fa-caret-down"></i>
-                        </button>
-                    </th>
-                    <th>Type 
-                        <button class="blackArrow">
-                            <i class="fas arrow fa-caret-down"></i>
-                        </button>
-                    </th>
-                    <th>Coordinates 
-                        <button class="blackArrow">
-                            <i class="fas arrow fa-caret-down"></i>
-                        </button>
-                    </th>
-                    <th>Adress 
-                        <button class="blackArrow">
-                            <i class="fas arrow fa-caret-down"></i>
-                        </button>
-                    </th>
-                </tr>
-      
-    
-                <tr *ngFor="let eq of equipments">
-                   <td>{{eq.id}}</td>
-                   <td>{{eq.name}}</td>
-                   <td>{{eq.tip}}</td>
-                   <td>{{eq.koordinate}}</td>
-                   <td>{{eq.adresa}}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="oprema">
-            <label class="labelaizbor">Choose equipment</label> 
-            <select class="select">
-                <option *ngFor="let eq of equipments" [value]="eq.id">{{eq.id}}</option>
-            </select>
-            <button type="button" routerLink="#" class="btndodaj">
-                <i class="fa fa-check" aria-hidden="true"></i>
-            </button>
-        </div>
-    </body>
-</html>
+<h2 style="color: black; font-weight: bold;" class="naslov">Equipments</h2>
+<div class="tabela">
+  <mat-form-field>
+    <input matInput class="filter" (keyup)="applyFilter($event)" placeholder="Filter" #input>
+  </mat-form-field>
+
+  <div >
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+        <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="coordinate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Coordinates </th>
+        <td mat-cell *matCellDef="let row"> {{row.coordinate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="adress">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Adress </th>
+        <td mat-cell *matCellDef="let row"> {{row.adress}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+<div class="oprema">
+  <label class="labelaizbor">Choose equipment</label>
+  <select class="select">
+    <option *ngFor="let eq of equipments" [value]="eq">{{eq}}</option>
+  </select>
+  <button type="button" routerLink="#" class="btndodaj">
+    <i class="fa fa-check" aria-hidden="true"></i>
+  </button>
+</div>

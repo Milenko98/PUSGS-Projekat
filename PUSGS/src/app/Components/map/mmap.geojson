@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Novi Sad","DodatneInfo":"Grad umetnosti"},"geometry":{"type":"Point","coordinates":[19.8248291015625,45.26715476332791]}},{"type":"Feature","properties":{"name":"Beograd","DodatneInfo":"Glavni grad Srbije"},"geometry":{"type":"Point","coordinates":[20.467529296875,44.83249999349062]}}]}

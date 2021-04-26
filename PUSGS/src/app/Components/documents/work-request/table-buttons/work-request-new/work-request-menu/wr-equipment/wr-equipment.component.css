@@ -1,8 +1,10 @@
 .oprema
 {
     position: relative;
-    margin-left: 1400px;
+    margin-left: 600px;
     top:-200px;
+    left: 900px;
+    width: 400px;
 }
 
 .labelaizbor
@@ -20,12 +22,12 @@
 .btndodaj
 {
     position: relative;
-    top: 60px;
+    top: 2px;
     width: 80px;
     height: 40px;
     font-style: italic;
     font-size: 18px;
-    left: -250px;
+    left: 20px;
     background-color: grey;
 }
 
@@ -34,54 +36,40 @@
     transition-duration: 0.4s;
 }
 
-.table
-{
+.tabela {
     position: relative;
-    left: 650px;
-    width: 1200px;
-    top:-230px;
-    border:rgb(209, 203, 203);
-    border-width: 2px;
-    border-style: solid;
-
-}
-
-th
-{
-    position: relative;
+    left: 900px;
+    top: -230px;
+    width: 900px;
+    
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  td, th {
+    width: 50%;
+    padding-right: 90px;
     font-size: 20px;
-    font-weight: bold;
-    width: 500px;
-    text-align: left;  
-}
+  }
 
-td
+  .ss{
+      position: relative;
+      left: 100px;
+  }
+  .filter{
+      width: 900px;
+      height: 50px;
+      font-size: 20px;
+  }
+
+.naslov
 {
     position: relative;
-    font-size: 20px;
-    text-align: left;
-    border: 0cm;
-}
-
-
-.blackArrow
-{
-    position: relative;
-    top: 20px;
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-style: none;
-}
-
-.arrow
-{
-    width: 0px;
-    height: 0px;
+    left: 1200px;
+    top: -230px;
     font-size: 40px;
-    font-weight: bold;
-    color: black;
-    position: relative;
-    top: -15px;
-    left: -10px; 
+    width: 230px;
 }
+

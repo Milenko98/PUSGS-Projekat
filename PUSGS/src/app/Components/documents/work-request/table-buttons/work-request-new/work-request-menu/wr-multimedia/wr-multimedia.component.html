@@ -1,15 +1,8 @@
-<html>
-    <head>
-        <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <div class="slikaa">
-            <img [src]="url" class="img" height="200" width="200"><br>
-            <div class="choose_file">
-                <button type="button" style="width: 125px;">Choose Image</button>
-                <input name="img" type="file" class="form-control" formControlName="slika" (change)="onSelectFile($event)" accept="image/*" />
-            </div>
-        </div>
-    </body>
-</html>
+<div class="slikaa">
+    <img [src]="url" class="img" height="200" width="200"><br>
+    <div class="choose_file">
+        <button type="button" style="width: 125px;">Choose Image</button>
+        <input name="img" type="file" class="form-control" formControlName="slika" (change)="onSelectFile($event)"
+            accept="image/*" />
+    </div>
+</div>

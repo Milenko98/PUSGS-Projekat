@@ -1,0 +1,70 @@
+.tabela 
+{
+    position: relative;
+    left: 500px;
+    top: 60px;
+    width: 1500px;
+}
+  
+.mat-form-field 
+{
+    width: 100%;
+}
+  
+td, th 
+{
+    width: 25%;
+    padding-right: 10%;
+    font-size: 20px;
+}
+
+.ss
+{
+    position: relative;
+    left: 100px;
+    width: 400px;
+}
+.filter
+{
+    width: 1500px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.dugmadi
+{
+    position: relative;
+    left: 1500px;
+    top: 100px;
+    width: 600px;
+}
+
+.new
+{
+    position: relative;
+    margin-right: 10px;
+    width: 150px;
+    height: 50px;
+}
+.naslov
+{
+    position: relative;
+    top: 20px;
+    left: 1100px;
+    width: 100px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.new
+{
+    position: fixed;
+    font-size: 20px;
+    left: 500px;
+    top: 100px;
+}
+
+.mat-18
+{
+    color: red;
+}
