@@ -122,3 +122,11 @@ hr
     width: 100%;
     height: 100%;
 }
+
+.mat-toolbar p {
+    display: inline-block;
+    font-size: 26px;
+    margin: 0 650px;
+    color: white;
+    text-decoration: none;
+  }

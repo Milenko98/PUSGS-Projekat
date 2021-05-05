@@ -1,28 +1,30 @@
-<html>
-    <head>
-        <meta name="viewport"
-        content="width=device-width, initial-scale=1">
-    </head>
 
-    <body>
-        <div class="container">
-            <div class="menu">
-                <button routerLink="./AllNotifications" type="button">All Notifications</button>
-                <br>
-                <button routerLink="./UnreadNotifications" type="button">Unread Notifications</button>
-                <br>
-                <button routerLink="./ErrorNotifications" type="button">Errors</button><i class="fas errors fa-times-circle"></i>
-                <br>
-                <button routerLink="./InfoNotifications" type="button">Info</button><i class="fas info fa-info-circle"></i>
-                <br>
-                <button routerLink="./SuccessNotifications" type="button">Success</button><i class="fas check fa-check"></i>
-                <br>
-                <button routerLink="./WarningNotifications" type="button">Warnings</button><i class="fas warnings fa-exclamation-triangle"></i>
-            </div>
-        
-        </div>
-
-        <router-outlet></router-outlet>
-    </body>
-
-</html>
+        <!--<div class="container">-->
+            <!--<div class="menu">-->
+                <mat-card>
+                    <mat-card-content>
+                    <button mat-button type="button">All Notifications</button>
+                    <br>
+                    <button mat-button type="button">Unread Notifications</button>
+                    <br>
+                    <button mat-button (click)="ErrorSuccess()" type="button">Errors</button><mat-icon class="btncancel">cancel</mat-icon>
+                    <br>
+                    <button mat-button (click)="infoSuccess()" type="button">Info</button><mat-icon class="btninfo">error_outline</mat-icon>
+                    <br>
+                    <button mat-button (click)="showSuccess()" type="button">Success</button><mat-icon class="btnsuccess">done</mat-icon>
+                    <br>
+                    <button mat-button (click)="warningSuccess()" type="button">Warnings</button><mat-icon class="btnwarning">warning</mat-icon>
+                </mat-card-content>
+                </mat-card>
+    
+                <div class="btndiv">
+                    <button mat-button type="button" class="btn allread btn-primary">Mark all as read</button>
+    
+                    <button mat-button type="button" class="btn clearall btn-primary" (click)="clearAll()">Clear all</button>
+                </div>
+                <!--</div>-->
+            
+            <!--</div>-->
+    
+            <router-outlet></router-outlet>
+    

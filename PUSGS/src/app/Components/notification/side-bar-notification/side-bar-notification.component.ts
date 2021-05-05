@@ -1,4 +1,6 @@
+import { DatePipe, getLocaleDateTimeFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-side-bar-notification',
@@ -7,7 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarNotificationComponent implements OnInit {
 
-  constructor() { }
+  datum: Date = new Date();
+  allRead: boolean = false;
+
+  readNotifications: Array<any>;
+
+  constructor(private toastr: ToastrService) { }
+
+  
+  showSuccess(){
+    this.toastr.success('Moj prvi toaster success',Date());
+    
+  }
+
+  ErrorSuccess(){
+    this.toastr.error('Error toastr', Date());
+  }
+
+  infoSuccess(){
+    this.toastr.info('Info toast', Date());
+  }
+
+  warningSuccess() {
+    this.toastr.warning('Warning toastr', Date());
+  }
+
+  clearAll(){
+    this.toastr.clear();
+  }
+
+  markAllAsRead(){
+    this.allRead = true;
+  }
+
+  //Trebace za kasnije
+  //toastrService.clear(toastId?: number);
+  //toastrService.remove(toastId: number);
 
   ngOnInit(): void {
   }

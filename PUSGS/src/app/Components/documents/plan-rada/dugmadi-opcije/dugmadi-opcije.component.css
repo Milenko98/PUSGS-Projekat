@@ -1,7 +1,7 @@
-.novi
+/*.novi
 {
     position: relative;
-    top: 20px;
+    /*top: -2000px;
     left: -120px;
     width: 150px;
     height: 50px;
@@ -12,7 +12,7 @@
 .svadokumenta
 {
     position: relative;
-    top: 20px;
+    /*top: -2000px;
     left: -200px;
     width: 150px;
     height: 50px;
@@ -22,7 +22,7 @@
 .mojadokumenta
 {
     position: relative;
-    top: -30px;
+    /*top: -2050px;
     left: 305px;
     width: 150px;
     height: 50px;
@@ -33,10 +33,47 @@
 .filteri
 {
     position: relative;
-    top: -80px;
+    /*top: -2100px;
     left: 1150px;
     width: 150px;
     height: 50px;
     margin-right: 200px;
     font-size: 20px;
+}*/
+
+
+
+  /*.nesto
+  {
+      position: relative;
+      margin-right: 3rem;
+      right: -100px;
+      top: 40px;
+      width: 600px;
+  }*/
+
+  .btnfilter{
+    position: relative;
+    right: -700px;
+    top: 50px;
+}
+
+.btnmine{
+  position: relative;
+  right: -200px;
+  margin-right: 3rem;
+  top: 50px;
+}
+
+.btnadd{
+  position: relative;
+  margin-right: 3rem;
+  top: 50px;
+}
+
+.btnall{
+  position: relative;
+  margin-right: 3rem;
+  right: -195px;
+  top: 50px;
 }

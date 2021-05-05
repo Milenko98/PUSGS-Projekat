@@ -1,13 +1,4 @@
-<html>
-    <head>
-        <meta name="viewport"
-     content="width=device-width, initial-scale=1">
-
-    </head>
-
-    <body>
-
-    
+<!--*******************************NAS TIP FORME************************************
 <div class="col-md-6">
     <div class="container-fluid">
         <form name="forma" class="forma" [formGroup]="courseForm" (ngSubmit)="onSubmit()">
@@ -64,8 +55,97 @@
         </form>   
     </div>
 </div>
+-->
 
+<!--**************************DRUGI TIP FORME*****************************************-->
+<!--
+<div fxFlex fxLayout="column" fxLayoutGap="0px">
+  <div fxLayout="row wrap">
+    <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column">
+      
+      <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
+        <img class="slika" width="50%" src="/assets/Images/Tesla.jpg"/>
+      </div>
+ 
+    </div>
 
-</body>
-</html>
+    <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column" class="mat-app-background">
+      <div fxLayout="column" fxLayoutAlign="center" style="margin-top:30px">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <h3>Welcome to Tesla Distribution</h3>
+        </div>
 
+        <div fxLayout="row" fxLayoutAlign="center">
+          <h4>Please sign in below</h4>
+        </div>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="center" style="margin-top:100px">
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+          <div fxLayoutAlign="center">
+            <mat-form-field style="width:50%" appearance="fill">
+              <mat-label>Enter username</mat-label>
+              <input formControlName="username" matInput>
+              <mat-error *ngIf="form.controls['username'].invalid">Please enter a valid username</mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayoutAlign="center" style="margin-top:10px">
+            <mat-form-field style="width:50%" appearance="fill">
+              <mat-label>Enter password</mat-label>
+              <input type="password" formControlName="password" matInput>
+              <mat-error *ngIf="form.controls['password'].invalid">Please enter a valid password</mat-error>
+            </mat-form-field>
+          </div>
+          <div fxLayoutAlign="center" style="margin-top:20px">
+            <button [disabled]="!form.valid || formSubmitted" type="submit" mat-raised-button color="primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> 
+</div>-->
+
+<!--************************************TRECI TIP FORME*********************************-->
+
+<div fxLayoutAlign="center center" fxFlexFill class="glavni-div">
+    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+      <mat-card fxFlex="25%">
+        <mat-toolbar fxLayoutAlign="center center">Tesla Distribution</mat-toolbar>
+        <mat-toolbar fxLayoutAlign="center center" color="primary">Login</mat-toolbar>
+        <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Enter email" formControlName="email">
+            <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email</mat-error>
+          </mat-form-field>
+    
+          
+        
+          <mat-form-field appearance="fill">
+            <input matInput type="password" placeholder="Enter password" formControlName="password" [type]="hide ? 'password' : 'text'" required>
+            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>
+                  {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+              </button>
+            <mat-error *ngIf="form.controls['password'].invalid">Please enter a valid password</mat-error>
+          </mat-form-field>
+    
+          <span class="forgot-password"><a routerLink="/dashboard">Forgot password?</a></span>
+          <br>
+          <span class="createaccount"><a routerLink="/registration">Create account</a></span>
+          <button [disabled]="!form.valid || formSubmitted" mat-raised-button color="primary" type="submit">Login</button>
+        </form>
+      </mat-card>
+    </div>
+    
+    
+    <button mat-button  type="button" class="btn btnreport btn-primary"><mat-icon>call</mat-icon>Report outage</button>
+    
+    </div>
+    
+    
+    
+    
+    
+    

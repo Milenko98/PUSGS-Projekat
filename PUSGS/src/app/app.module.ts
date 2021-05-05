@@ -21,7 +21,7 @@ import { MySafetyDocsComponent } from './Components/dashboard/my-safety-docs/my-
 import { DocumentsPieComponent } from './Components/dashboard/documents-pie/documents-pie.component';
 import { RegistracijaComponent } from './Components/registracija/registracija.component';
 import { RegistracijaPodaciComponent } from './Components/registracija/registracija-podaci/registracija-podaci.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DocumentsComponent } from './Components/documents/documents.component';
 import { DocumentsCoreComponent } from './Components/documents/documents-core/documents-core.component';
 import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.component';
@@ -61,8 +61,22 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MapComponent } from './Components/map/map.component';
 import { TeamsComponent } from './Components/teams/teams.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { NewTeamComponent } from './Components/teams/new-team/new-team.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule} from '@angular/material/divider';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { ToastrModule } from 'ngx-toastr';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 
 @NgModule({
@@ -118,6 +132,7 @@ import { NewTeamComponent } from './Components/teams/new-team/new-team.component
     MapComponent,
     TeamsComponent,
     NewTeamComponent,
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -131,7 +146,34 @@ import { NewTeamComponent } from './Components/teams/new-team/new-team.component
     MatSortModule,
     MatPaginatorModule,
     MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatDividerModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatMenuModule,
+    ToastrModule.forRoot({
+      timeOut:10000,
+      //positionClass: 'toast-top-right',
+      tapToDismiss: true,
+      //preventDuplicates: true,
+      enableHtml: true,
+      maxOpened: 6,
+      progressBar: true,
+      progressAnimation: 'increasing'
+    }),
+    LayoutModule,
   ],
+  
+  exports: [
+    MatSidenavModule,
+    MatToolbarModule
+  ],
+
   providers: [],
   bootstrap: [AppComponent],
   

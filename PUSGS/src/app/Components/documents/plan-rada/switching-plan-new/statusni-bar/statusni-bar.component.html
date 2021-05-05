@@ -1,12 +1,5 @@
-<html>
 
-<head>
-    <meta name="viewport"
-     content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-
+<!--
 <div class="container">
     <div class="menu">
         <button routerLink="./BasicInformations" type="button">Basic Informations</button>
@@ -21,11 +14,23 @@
     </div>
 
 </div>
+-->
+
+<mat-card>
+    <mat-card-content>
+    <button routerLink="./BasicInformations" mat-button type="button">Basic Informations</button>
+    <br>
+    <button routerLink="./swHistoryOfStateChanges" mat-button type="button">History of state changes</button>
+    <br>
+    <button routerLink="./swMiltimediaAttachments" mat-button type="button">Multimedia attachments</button>
+    <br>
+    <button routerLink="./swEquipment" mat-button type="button">Equipment</button>
+    <br>
+    <button routerLink="./swSwitchingInstructions" mat-button type="button">Switching instructions</button>   
+    </mat-card-content>
+</mat-card>
 
 <router-outlet></router-outlet>
 
-</body>
-
-</html>
 
 

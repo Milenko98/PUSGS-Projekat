@@ -1,11 +1,18 @@
-div.container-fluid
+/*div.container-fluid
 {
     position: relative;
-    top: 80px;
+    top: -1320px;
     background-color: aliceblue;
     width: 300px;
-    height: 400px;   
+    height: 400px;  
+    margin-right: -550px; 
 }
+
+img.slika{
+    max-width: 100%;
+    max-height: fit-content;
+}
+
 @media screen and (max-width:992px)
 {
     div.container-fluid
@@ -87,4 +94,37 @@ a.linkzaboravljenalozinka
     font-style: italic;
     font-weight: bold;
     font-size: 15px;
-}
+}*/
+
+.main-div mat-card {
+    padding:0px;
+    }
+    
+    .glavni-div {
+        /*background-color: aqua;*/
+        background-image: url('src/assets/Images/lightning.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .forgot-password {
+        position: relative;
+        text-align: right;
+        
+    }
+    
+    .createaccount {
+        position: relative;
+        text-align: right;
+    }
+    
+    .login-form {
+        padding: 20px;
+    }
+    
+    .btnreport {
+        left: -1400px;
+        top: 200px;
+        width: 200px;
+       
+    }
