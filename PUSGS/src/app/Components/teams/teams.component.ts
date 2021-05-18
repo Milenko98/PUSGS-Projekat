@@ -3,6 +3,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import { TeamServiceService } from 'src/app/Services/team-service.service';
+import { NewTeam } from 'src/app/Entities/new-team';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogViewTeamMembersComponent } from './dialog-view-team-members/dialog-view-team-members.component';
+import { DialogEditTeamComponent } from './dialog-edit-team/dialog-edit-team.component';
 
 @Component({
   selector: 'app-teams',
@@ -11,28 +16,22 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class TeamsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'teamMembers', 'edit', 'delete'];
-  dataSource: MatTableDataSource<Teams>;
-  counterApprove!: number;
-  counterDeny! : number;
-  counterCancel! : number;
-  teams! : Array<Teams>;
+  dataSource: MatTableDataSource<NewTeam>;
+  teams! : Array<NewTeam>;
   team!: Teams;
+  ime!:string[];
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
-    this.teams = [{id: 1, name:"k"},
-    {id:2, name:"c"},
-    {id:3, name:"d"},
-    {id:4, name:"a"},
-    {id:5, name:"e"},
-    {id:6, name:"w"}]
+  constructor(private teamService: TeamServiceService, public dialog: MatDialog) {
+    this.teams = this.teamService.getTeams();
 
     this.dataSource = new MatTableDataSource(this.teams);
+    
   }
   ngOnInit(): void {
-    
   }
 
   ngAfterViewInit() 
@@ -51,16 +50,44 @@ export class TeamsComponent implements OnInit {
     }
   }
 
-  getId(id){
-    alert(id);
+  viewMembers(id){
+    this.teamService.sendId(id);
+    this.dialog.open(DialogViewTeamMembersComponent);
   }
 
-  getIdEdit(id)
+  editTeam()
   {
-    alert(id);
+    let editedTeam = this.teamService.giveEditedTeam();
+    if(editedTeam != null){
+      this.teams.forEach(element => {
+        if(element.id == editedTeam.id){
+          element.id = editedTeam.id;
+          element.name = editedTeam.name;
+          element.teamMembers = editedTeam.teamMembers;
+        }
+      });
+    }
+    else{
+
+    }
   }
 
-  getIdDelete(i)
+  Edit(id)
+  {
+    let editTeam = new NewTeam;
+    this.teams.forEach(element => {
+      if(element.id == id){
+        editTeam.id = element.id;
+        editTeam.name = element.name;
+        editTeam.teamMembers = element.teamMembers;
+      }
+    });
+
+    this.teamService.sendEditTeam(editTeam);
+    this.dialog.open(DialogEditTeamComponent,{width:'500px',height:'500px'});
+  }
+
+  Delete(i)
   {
     console.log(i);
     console.log(this.teams);

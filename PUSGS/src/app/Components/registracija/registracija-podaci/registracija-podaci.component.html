@@ -1,116 +1,137 @@
-
-<mat-toolbar color="primary"><p>Registracija</p></mat-toolbar>
+<mat-toolbar color="primary">
+    <p>Registracija</p>
+</mat-toolbar>
 <div class="container">
     <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
         <div class="col-md-6">
             <h2>New User Data</h2>
             <hr>
-        <div class="row">
-            <div class="col-sm-6 form-group" [ngClass]="{'has-error' : courseForm.get('username')?.errors && (courseForm.get('username')?.touched || courseForm.get('username')?.dirty)}">
-                <label for="username" class="control-label">User Name</label>
-                <input type="text" id="usernameunos" class="form-control" placeholder="UserName" formControlName="username">
-                <div class="help-block" *ngIf = "courseForm.get('username')?.errors && courseForm.get('username')?.touched || courseForm.get('username')?.dirty">
-                    <div *ngIf="courseForm.controls.username.errors?.required">
-                        User Name is required!
+            <div class="row">
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('username')?.errors && (courseForm.get('username')?.touched || courseForm.get('username')?.dirty)}">
+                    <label for="username" class="control-label">User Name</label>
+                    <input type="text" id="usernameunos" class="form-control" placeholder="UserName"
+                        formControlName="username">
+                    <div class="help-block"
+                        *ngIf="courseForm.get('username')?.errors && courseForm.get('username')?.touched || courseForm.get('username')?.dirty">
+                        <div *ngIf="courseForm.controls.username.errors?.required">
+                            User Name is required!
+                        </div>
+                        <div *ngIf="courseForm.controls.username.errors?.minlength">
+                            User Name must be greater then 2 characters!
+                        </div>
+                        <div *ngIf="courseForm.controls.username.errors?.maxlength">
+                            User Name must be less then 20 characters!
+                        </div>
                     </div>
-                    <div *ngIf="courseForm.controls.username.errors?.minlength">
-                        User Name must be greater then 2 characters!
+                </div>
+
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('email')?.errors && (courseForm.get('email')?.touched || courseForm.get('email')?.dirty)}">
+                    <label for="email" class="control-label">Email Adress</label>
+                    <input type="text" id="emailunos" class="form-control" placeholder="Example@email.com"
+                        formControlName="email">
+                    <div class="help-block"
+                        *ngIf="courseForm.get('email')?.errors && courseForm.get('email')?.touched || courseForm.get('email')?.dirty">
+                        <div *ngIf="courseForm.controls.email.errors?.required">
+                            Email is required!
+                        </div>
+                        <div *ngIf="courseForm.controls.email.errors?.email">
+                            Email is not valid!
+                        </div>
                     </div>
-                    <div *ngIf="courseForm.controls.username.errors?.maxlength">
-                        User Name must be less then 20 characters!
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('firstname')?.errors && (courseForm.get('firstname')?.touched || courseForm.get('firstname')?.dirty)}">
+                    <label for="firstname" class="control-label">First Name</label>
+                    <input type="text" id="firstnameunos" class="form-control" placeholder="First Name"
+                        formControlName="firstname">
+                    <div class="help-block"
+                        *ngIf="courseForm.get('firstname')?.errors && courseForm.get('firstname')?.touched || courseForm.get('firstname')?.dirty">
+                        <div *ngIf="courseForm.controls.firstname.errors?.required">
+                            First Name is required!
+                        </div>
+                        <div *ngIf="courseForm.controls.firstname.errors?.minlength">
+                            First Name must be greater then 2 characters!
+                        </div>
+                        <div *ngIf="courseForm.controls.firstname.errors?.maxlength">
+                            First Name must be less then 20 characters!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('lastname')?.errors && (courseForm.get('lastname')?.touched || courseForm.get('lastname')?.dirty)}">
+                    <label for="lastname" class="control-label">Last Name</label>
+                    <input type="text" id="lastnameunos" class="form-control" placeholder="Last Name"
+                        formControlName="lastname">
+                    <div class="help-block"
+                        *ngIf="courseForm.get('lastname')?.errors && courseForm.get('lastname')?.touched || courseForm.get('lastname')?.dirty">
+                        <div *ngIf="courseForm.controls.lastname.errors?.required">
+                            Last Name is required!
+                        </div>
+                        <div *ngIf="courseForm.controls.lastname.errors?.minlength">
+                            Last Name must be greater then 2 characters!
+                        </div>
+                        <div *ngIf="courseForm.controls.lastname.errors?.maxlength">
+                            Last Name must be less then 20 characters!
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-6 form-group" [ngClass]="{'has-error' : courseForm.get('email')?.errors && (courseForm.get('email')?.touched || courseForm.get('email')?.dirty)}">
-                <label for="email" class="control-label">Email Adress</label>
-                <input type="text" id="emailunos" class="form-control" placeholder="Example@email.com" formControlName="email">
-                <div class="help-block" *ngIf = "courseForm.get('email')?.errors && courseForm.get('email')?.touched || courseForm.get('email')?.dirty">
-                    <div *ngIf="courseForm.controls.email.errors?.required">
-                        Email is required!
+            <div class="row">
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('lozinka')?.errors && (courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty)}">
+                    <label for="lozinka" class="control-label">Password</label>
+                    <input type="password" id="lozinkaunos" class="form-control" placeholder="Password"
+                        formControlName="lozinka">
+                    <div class="help-block"
+                        *ngIf="courseForm.get('lozinka')?.errors && courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty">
+                        <div *ngIf="courseForm.controls.lozinka.errors?.required">
+                            Password is required!
+                        </div>
                     </div>
-                    <div *ngIf="courseForm.controls.email.errors?.email">
-                        Email is not valid!
+                </div>
+
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('select')?.errors && (courseForm.get('select')?.touched || courseForm.get('select')?.dirty)}">
+                    <label for="select" class="control-label">Role</label>
+                    <select class="form-control selectt" formControlName="select">
+                        <option *ngFor="let option of roles" [value]="option">{{option}}</option>
+                    </select>
+                    <div class="help-block"
+                        *ngIf="courseForm.get('select')?.errors && courseForm.get('select')?.touched || courseForm.get('select')?.dirty">
+                        <div *ngIf="courseForm.controls.select.errors?.required">
+                            Role is required!
+                        </div>
                     </div>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-1">
+                    <button [disabled]="!courseForm.valid" class="add" type="submit">Add</button>
+                </div>
+                <div class="col-1">
+                    <button class="cancel" (click)="onClear()" type="button">Cancel</button>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6 form-group" [ngClass]="{'has-error' : courseForm.get('firstname')?.errors && (courseForm.get('firstname')?.touched || courseForm.get('firstname')?.dirty)}">
-                <label for="firstname" class="control-label">First Name</label>
-                <input type="text" id="firstnameunos" class="form-control" placeholder="First Name" formControlName="firstname">
-                <div class="help-block" *ngIf = "courseForm.get('firstname')?.errors && courseForm.get('firstname')?.touched || courseForm.get('firstname')?.dirty">
-                    <div *ngIf="courseForm.controls.firstname.errors?.required">
-                        First Name is required!
-                    </div>
-                    <div *ngIf="courseForm.controls.firstname.errors?.minlength">
-                        First Name must be greater then 2 characters!
-                    </div>
-                    <div *ngIf="courseForm.controls.firstname.errors?.maxlength">
-                        First Name must be less then 20 characters!
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-sm-6 form-group" [ngClass]="{'has-error' : courseForm.get('lastname')?.errors && (courseForm.get('lastname')?.touched || courseForm.get('lastname')?.dirty)}">
-                <label for="lastname" class="control-label">Last Name</label>
-                <input type="text" id="lastnameunos" class="form-control" placeholder="Last Name" formControlName="lastname">
-                <div class="help-block" *ngIf = "courseForm.get('lastname')?.errors && courseForm.get('lastname')?.touched || courseForm.get('lastname')?.dirty">
-                    <div *ngIf="courseForm.controls.lastname.errors?.required">
-                        Last Name is required!
-                    </div>
-                    <div *ngIf="courseForm.controls.lastname.errors?.minlength">
-                        Last Name must be greater then 2 characters!
-                    </div>
-                    <div *ngIf="courseForm.controls.lastname.errors?.maxlength">
-                        Last Name must be less then 20 characters!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group" [ngClass]="{'has-error' : courseForm.get('lozinka')?.errors && (courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty)}">
-                <label for="lozinka" class="control-label">Password</label>
-                <input type="password" id="lozinkaunos" class="form-control" placeholder="Password" formControlName="lozinka">
-                <div class="help-block" *ngIf = "courseForm.get('lozinka')?.errors && courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty">
-                    <div *ngIf="courseForm.controls.lozinka.errors?.required">
-                        Password is required!
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-sm-6 form-group" [ngClass]="{'has-error' : courseForm.get('select')?.errors && (courseForm.get('select')?.touched || courseForm.get('select')?.dirty)}">
-                <label for="select" class="control-label">Role</label>
-                <select class="form-control selectt" formControlName="select">
-                    <option *ngFor="let option of roles" [value]="option">{{option}}</option>
-                </select>
-                <div class="help-block" *ngIf = "courseForm.get('select')?.errors && courseForm.get('select')?.touched || courseForm.get('select')?.dirty">
-                    <div *ngIf="courseForm.controls.select.errors?.required">
-                        Role is required!
-                    </div>
-                </div>
-            </div>
-        </div>        
-        <div class="row">
-            <div class="col-1">
-                <button [disabled]="!courseForm.valid" class="add"  type="submit">Add</button>              
-            </div>
-            <div class="col-1">
-                <button class="cancel"(click)="onClear()" type="button">Cancel</button>
-            </div>
-        </div>
-        </div>
-
-        
-        <div class="col-md-6 form-group" [ngClass]="{'has-error' : courseForm.get('slika')?.errors && (courseForm.get('slika')?.touched || courseForm.get('slika')?.dirty)}">
+        <div class="col-md-6 form-group"
+            [ngClass]="{'has-error' : courseForm.get('slika')?.errors && (courseForm.get('slika')?.touched || courseForm.get('slika')?.dirty)}">
             <h2>Profile Picture</h2>
             <hr>
             <img [src]="url" class="img" height="200" width="200"><br>
             <div class="choose_file">
                 <button type="button" style="width: 125px;">Choose Image</button>
-                <input name="img" type="file" class="form-control" formControlName="slika" (change)="onSelectFile($event)" accept="image/*" />
-                <div class="help-block" *ngIf = "courseForm.get('slika')?.errors && courseForm.get('slika')?.touched || courseForm.get('slika')?.dirty">
+                <input name="img" type="file" class="form-control" formControlName="slika"
+                    (change)="onSelectFile($event)" accept="image/*" />
+                <div class="help-block"
+                    *ngIf="courseForm.get('slika')?.errors && courseForm.get('slika')?.touched || courseForm.get('slika')?.dirty">
                     <div *ngIf="courseForm.controls.slika.errors?.required">
                         Picture is required!
                     </div>

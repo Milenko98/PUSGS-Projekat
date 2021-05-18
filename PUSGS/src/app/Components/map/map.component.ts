@@ -22,31 +22,71 @@ import { formatCurrency } from '@angular/common';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+   constructor() { }
+
+  // ngOnInit(): void {
+  //   let map = new Map({
+  //     target: 'hotel_map',
+  //     layers: [
+  //        new TileLayer({
+  //          source: new OSM()
+  //        })
+  //     ],
+  //     view: new View({
+  //       center: olProj.fromLonLat([7.0785, 51.4614]),
+  //       zoom: 3
+  //     })
+  //   });
+
+  //   let cc = new ol({
+  //       source: new VectorSource({
+  //       url:'./src/app/Components/map/mmap.geojson',
+  //       format: new GeoJSON()
+  //     }),
+  //     visible: true,
+  //     title: 'Srbija'
+  //   })
+
+  //   map.addLayer(cc);
+  // }
 
   ngOnInit(): void {
-    let map = new Map({
-      target: 'hotel_map',
-      layers: [
-         new TileLayer({
-           source: new OSM()
-         })
-      ],
-      view: new View({
-        center: olProj.fromLonLat([7.0785, 51.4614]),
-        zoom: 3
-      })
-    });
-
-    let cc = new ol({
-        source: new VectorSource({
-        url:'./src/app/Components/map/mmap.geojson',
-        format: new GeoJSON()
-      }),
-      visible: true,
-      title: 'Srbija'
-    })
-
-    map.addLayer(cc);
   }
+  lat=45.267136;
+  long=19.833549;
+  zoom=7;
+
+  markers = [
+
+    {
+
+        lat: 45.24320958148842,
+
+        lng: 19.83833991140063,
+
+        label: 'Bulevar Cara Lazara, incident : Kvar na trafostanici'
+
+    },
+
+    {
+
+        lat: 44.787197,
+
+        lng: 20.457273,
+
+        label: 'Beograd'
+
+    },
+
+    {
+
+        lat: 44.979497,
+
+        lng: 19.620966,
+
+        label: 'Sremska Mitrovica'
+
+    }
+
+];
 }

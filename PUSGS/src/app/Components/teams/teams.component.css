@@ -2,7 +2,7 @@
 {
     position: relative;
     left: 500px;
-    top: 60px;
+    top: 200px;
     width: 1500px;
 }
   
@@ -26,6 +26,7 @@ td, th
 }
 .filter
 {
+    position: relative;
     width: 1500px;
     height: 50px;
     font-size: 20px;
@@ -42,9 +43,11 @@ td, th
 .new
 {
     position: relative;
-    margin-right: 10px;
+    left: 500px;
     width: 150px;
     height: 50px;
+    color: black;
+    top: 230px;
 }
 .naslov
 {
@@ -56,15 +59,15 @@ td, th
     font-weight: bold;
 }
 
-.new
-{
-    position: fixed;
-    font-size: 20px;
-    left: 500px;
-    top: 100px;
-}
 
 .mat-18
 {
     color: red;
 }
+
+.mat-row:nth-child(2n+1){
+    background-color: #e4f0ec;
+  }
+  .mat-row:not(:nth-child(4n+1)){
+    background-color:#ffffff;
+  }

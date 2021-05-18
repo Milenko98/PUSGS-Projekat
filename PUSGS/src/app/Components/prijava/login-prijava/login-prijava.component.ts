@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { SocialAuthService, FacebookLoginProvider, SocialUser, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login-prijava',
@@ -30,15 +31,35 @@ export class LoginPrijavaComponent implements OnInit {
   }*/
 
   form: FormGroup;
+  socialUser: SocialUser;
+  isLoggedin: boolean = null;
     formSubmitted: boolean = false;
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder, private socialAuthService: SocialAuthService) {
+
+     }
 
     ngOnInit() {
         this.form = this.fb.group({
             'email': ['', Validators.compose([Validators.required,Validators.email])],
             'password': ['', Validators.compose([Validators.required])]
         });
+
+        this.socialAuthService.authState.subscribe((user) => {
+          this.socialUser = user;
+          this.isLoggedin = (user != null);
+        });
+        
+    }
+
+    loginWithFacebook(): void {
+      this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+      this.form.get('email').setValue(this.socialUser.name);
+    }
+
+    loginWithGoogle(): void {
+      this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+      this.form.get('email').setValue(this.socialUser.email);
     }
 
     onSubmit(loginForm) {

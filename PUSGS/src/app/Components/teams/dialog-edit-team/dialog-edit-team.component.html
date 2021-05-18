@@ -1,0 +1,63 @@
+<div class="novitt">
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+        <div class="col-md-6">
+            <h2>Edit Team</h2>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('name')?.errors && (courseForm.get('name')?.touched || courseForm.get('name')?.dirty)}">
+                    <label for="name" class="name control-label">Name</label>
+                    <input type="text" id="usernameunos"  class="form-control" placeholder="Name of team"
+                        formControlName="name">
+                    <div class="help-block"
+                        *ngIf="courseForm.get('name')?.errors && courseForm.get('name')?.touched || courseForm.get('name')?.dirty">
+                        <div *ngIf="courseForm.controls.name.errors?.required">
+                            Name is required!
+                        </div>
+                        <div *ngIf="courseForm.controls.name.errors?.minlength">
+                            Name must be greater then 2 characters!
+                        </div>
+                        <div *ngIf="courseForm.controls.name.errors?.maxlength">
+                            Name must be less then 20 characters!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dd row">
+
+                <div cdkDropListGroup>
+                    <div class="example-container">
+                        <h2>Existing Team Members</h2>
+
+                        <div cdkDropList [cdkDropListData]="existingTeamMembers" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <div class="example-box" *ngFor="let item of existingTeamMembers" cdkDrag>{{item.name}}
+                                {{item.lastname}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-container">
+                        <h2>Deleted Team Members</h2>
+
+                        <div cdkDropList [cdkDropListData]="deletedTeamMembers" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <div class="example-box" *ngFor="let item of deletedTeamMembers" cdkDrag>{{item.name}}
+                                {{item.lastname}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dgmd row">
+                <div class="col-1">
+                    <button [disabled]="!courseForm.valid" class="add" type="submit">Add</button>
+                </div>
+                <div class="col-1">
+                    <button class="cancel" (click)="onCancel()" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,4 +1,16 @@
 <!--<app-core></app-core>-->
 <app-main-nav>
-    <div id="hotel_map"></div>
+    <!-- <div id="hotel_map"></div> -->
+    
+<agm-map class="mapa" [latitude]="lat" [longitude]="long" [zoom]='zoom'>
+    <agm-marker [markerDraggable]="true" *ngFor="let marker of markers" [latitude]="marker.lat"
+        [longitude]="marker.lng">
+
+        <agm-info-window #infoWindow>
+
+            {{ marker.label }}
+
+        </agm-info-window>>
+    </agm-marker>
+</agm-map>
 </app-main-nav>

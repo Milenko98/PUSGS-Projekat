@@ -29,3 +29,35 @@
     margin-top: -220px;
     width: 400px;
 }
+
+
+p{
+   font-size: 25px;
+}
+  
+  ngx-dropzone,
+  .custom-dropzone {
+    margin: 20px;
+    width: 300px;
+  }
+  
+  .custom-dropzone {
+      position: relative;
+      height: 250px;
+      background: #333;
+      color: #fff;
+      border: 5px dashed rgb(235, 79, 79);
+      border-radius: 5px;
+      width: 700px !important;
+  }
+  
+  .custom-dropzone.ngx-dz-hovered {
+    border: 5px solid rgb(235, 79, 79);
+  }
+
+  :host ::ng-deep ngx-dropzone-preview{
+    height: 40px !important;
+    min-height: 40px !important;
+    min-width: 40px !important;
+    max-width: 400px !important;
+}

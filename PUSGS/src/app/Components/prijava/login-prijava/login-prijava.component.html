@@ -108,44 +108,48 @@
 <!--************************************TRECI TIP FORME*********************************-->
 
 <div fxLayoutAlign="center center" fxFlexFill class="glavni-div">
-    <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-      <mat-card fxFlex="25%">
-        <mat-toolbar fxLayoutAlign="center center">Tesla Distribution</mat-toolbar>
-        <mat-toolbar fxLayoutAlign="center center" color="primary">Login</mat-toolbar>
-        <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
-          <mat-form-field appearance="fill">
-            <input matInput placeholder="Enter email" formControlName="email">
-            <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email</mat-error>
-          </mat-form-field>
-    
-          
-        
-          <mat-form-field appearance="fill">
-            <input matInput type="password" placeholder="Enter password" formControlName="password" [type]="hide ? 'password' : 'text'" required>
-            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
-                [attr.aria-pressed]="hide">
-                <mat-icon>
-                  {{hide ? 'visibility_off' : 'visibility'}}
-              </mat-icon>
-              </button>
-            <mat-error *ngIf="form.controls['password'].invalid">Please enter a valid password</mat-error>
-          </mat-form-field>
-    
-          <span class="forgot-password"><a routerLink="/dashboard">Forgot password?</a></span>
-          <br>
-          <span class="createaccount"><a routerLink="/registration">Create account</a></span>
-          <button [disabled]="!form.valid || formSubmitted" mat-raised-button color="primary" type="submit">Login</button>
-        </form>
-      </mat-card>
-    </div>
-    
-    
-    <button mat-button  type="button" class="btn btnreport btn-primary"><mat-icon>call</mat-icon>Report outage</button>
-    
-    </div>
-    
-    
-    
-    
-    
-    
+  <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25%">
+      <mat-toolbar fxLayoutAlign="center center">Tesla Distribution</mat-toolbar>
+      <mat-toolbar fxLayoutAlign="center center" color="primary">Login</mat-toolbar>
+      <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="Enter email"  formControlName="email">
+          <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email</mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="fill">
+          <input matInput type="password" placeholder="Enter password" formControlName="password"
+            [type]="hide ? 'password' : 'text'" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>
+              {{hide ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls['password'].invalid">Please enter a valid password</mat-error>
+        </mat-form-field>
+
+        <span class="forgot-password"><a routerLink="/dashboard">Forgot password?</a></span>
+        <br>
+        <span class="createaccount"><a routerLink="/registration">Create account</a></span>
+        <button [disabled]="!form.valid || formSubmitted" mat-raised-button color="primary" type="submit">Login</button>
+      </form>
+
+  <button mat-button type="button" (click)="loginWithFacebook()" class="btn fb btn-primary">
+    <mat-icon>facebook</mat-icon>Sign in with Facebook
+  </button><br><br>
+
+  <button mat-button type="button" (click)="loginWithGoogle()" class="btn google btn-primary">
+    <mat-icon>google</mat-icon>Sign in with Google
+  </button><br><br>
+
+    </mat-card>
+  </div>
+  <button mat-button type="button" class="btn btnreport btn-primary">
+    <mat-icon>call</mat-icon>Report outage
+  </button>
+
+</div>

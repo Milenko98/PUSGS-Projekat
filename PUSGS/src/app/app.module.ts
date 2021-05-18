@@ -76,6 +76,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ToastrModule } from 'ngx-toastr';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { AgmCoreModule } from '@agm/core';
+import { MapsModule } from '@syncfusion/ej2-angular-maps';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
+import { DialogViewTeamMembersComponent } from './Components/teams/dialog-view-team-members/dialog-view-team-members.component';
+import { DialogEditTeamComponent } from './Components/teams/dialog-edit-team/dialog-edit-team.component';
+import { DatePipe } from '@angular/common'
+
 
 
 
@@ -133,6 +143,13 @@ import { LayoutModule } from '@angular/cdk/layout';
     TeamsComponent,
     NewTeamComponent,
     MainNavComponent,
+    DialogViewTeamMembersComponent,
+    DialogEditTeamComponent,
+  ],
+
+  entryComponents:[
+    DialogViewTeamMembersComponent,
+    DialogEditTeamComponent
   ],
   imports: [
     BrowserModule,
@@ -167,6 +184,15 @@ import { LayoutModule } from '@angular/cdk/layout';
       progressAnimation: 'increasing'
     }),
     LayoutModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyABdSOmRdKAV2R7fO-J3ucK_PwDuZMWBow',
+      
+    }),
+    MapsModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    DragDropModule,
+    NgxDropzoneModule,
+    SocialLoginModule
   ],
   
   exports: [
@@ -174,7 +200,29 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatToolbarModule
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(
+              '473100873768033'
+            )
+          },
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '111241772644-l1rq2gdjta04gpopidknpn8lnt34bo8r.apps.googleusercontent.com'
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    },
+    DatePipe    
+  ],
   bootstrap: [AppComponent],
   
   schemas:[

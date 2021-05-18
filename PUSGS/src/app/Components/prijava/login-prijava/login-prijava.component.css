@@ -123,8 +123,19 @@ a.linkzaboravljenalozinka
     }
     
     .btnreport {
-        left: -1400px;
+        left: -1800px;
         top: 200px;
         width: 200px;
        
     }
+    .fb
+    {
+        width: 100%;
+    }
+
+    .google
+    {
+        width: 100%;
+    }
+
+  

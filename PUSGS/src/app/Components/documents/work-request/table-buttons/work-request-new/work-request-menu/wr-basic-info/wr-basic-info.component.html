@@ -1,11 +1,4 @@
-<html>
-<head>
-    <meta name="viewport" charset="utf-8"
-    content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-<div class="container">
+<!-- <div class="container">
     <table class="tabela">
         <tr>
             <td>
@@ -152,8 +145,155 @@
         </tr>
 
     </table>
+</div> -->
+
+
+<div class="container">
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('selectType')?.errors && (courseForm.get('selectType')?.touched || courseForm.get('selectType')?.dirty)}">
+                <label for="selectType" class="control-label">Type</label>
+                <select class="form-control selectType" formControlName="selectType">
+                    <option *ngFor="let type of types" [value]="type">{{type}}</option>
+                </select>
+                <div class="help-block"
+                    *ngIf="courseForm.get('selectType')?.errors && courseForm.get('selectType')?.touched || courseForm.get('selectType')?.dirty">
+                    <div *ngIf="courseForm.controls.selectType.errors?.required">
+                        Type is required!
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group">
+                <label for="status" class="control-label">Status</label>
+                <input type="text" style="font-weight: bold;" readonly class="form-control" formControlName="status">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label for="selectIncident" class="control-label">Incident</label>
+                <select class="form-control selectIncident" formControlName="selectIncident">
+                    <option *ngFor="let inc of incidents" [value]="inc">{{inc}}</option>
+                </select>
+            </div>
+
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('selectTypeofWork')?.errors && (courseForm.get('selectTypeofWork')?.touched || courseForm.get('selectTypeofWork')?.dirty)}">
+                <label for="selectTypeofWork" class="control-label">Type of work</label>
+                <select class="form-control selectTypeofWork" formControlName="selectTypeofWork">
+                    <option *ngFor="let type of typeofWorks" [value]="type">{{type}}</option>
+                </select>
+                <div class="help-block"
+                    *ngIf="courseForm.get('selectTypeofWork')?.errors && courseForm.get('selectTypeofWork')?.touched || courseForm.get('selectTypeofWork')?.dirty">
+                    <div *ngIf="courseForm.controls.selectTypeofWork.errors?.required">
+                        Type of work is required!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('startdate')?.errors && (courseForm.get('startdate')?.touched || courseForm.get('startdate')?.dirty)}">
+                <label for="startdate" class="control-label">Start date time</label>
+                <input type="datetime-local" class="form-control startdate" formControlName="startdate">
+                <div class="help-block"
+                    *ngIf="courseForm.get('startdate')?.errors && courseForm.get('startdate')?.touched || courseForm.get('startdate')?.dirty">
+                    <div *ngIf="courseForm.controls.startdate.errors?.required">
+                        Start Date time is required!
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('enddate')?.errors && (courseForm.get('enddate')?.touched || courseForm.get('enddate')?.dirty)}">
+                <label for="enddate" class="control-label">End date time</label>
+                <input type="datetime-local" class="form-control enddate" formControlName="enddate">
+                <div class="help-block"
+                    *ngIf="courseForm.get('enddate')?.errors && courseForm.get('enddate')?.touched || courseForm.get('enddate')?.dirty">
+                    <div *ngIf="courseForm.controls.enddate.errors?.required">
+                        End Date time is required!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label for="createdBy" class="control-label">Created by</label>
+                <input type="text" style="font-weight: bold;" readonly class="form-control createdBy" formControlName="createdBy">
+            </div>
+
+            <div class="col-sm-6 form-group">
+                <label class="switch">
+                    <input type="checkbox" class="form-control emergencyWork" formControlName="emergencyWork">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('company')?.errors && (courseForm.get('company')?.touched || courseForm.get('company')?.dirty)}">
+                <label for="company" class="control-label">Company</label>
+                <input type="text" class="form-control company" formControlName="company">
+                <div class="help-block"
+                    *ngIf="courseForm.get('company')?.errors && courseForm.get('company')?.touched || courseForm.get('company')?.dirty">
+                    <div *ngIf="courseForm.controls.company.errors?.required">
+                        Company is required!
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('phonenum')?.errors && (courseForm.get('phonenum')?.touched || courseForm.get('phonenum')?.dirty)}">
+                <label for="phonenum" class="control-label">Phone number</label>
+                <input type="text" class="form-control phonenum" formControlName="phonenum">
+                <div class="help-block"
+                    *ngIf="courseForm.get('phonenum')?.errors && courseForm.get('phonenum')?.touched || courseForm.get('phonenum')?.dirty">
+                    <div *ngIf="courseForm.controls.phonenum.errors?.required">
+                        Phone number is required!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label for="datecreated" class="control-label">Date time created</label>
+                <input type="text" style="font-weight: bold;" readonly class="form-control datecreated" formControlName="datecreated">
+            </div>
+
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('purpose')?.errors && (courseForm.get('purpose')?.touched || courseForm.get('purpose')?.dirty)}">
+                <label for="purpose" class="control-label">Purpose</label>
+                <input type="text" class="form-control purpose" formControlName="purpose">
+                <div class="help-block"
+                    *ngIf="courseForm.get('purpose')?.errors && courseForm.get('purpose')?.touched || courseForm.get('purpose')?.dirty">
+                    <div *ngIf="courseForm.controls.purpose.errors?.required">
+                        Purpose is required!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <label for="details" class="control-label">Details</label>
+                <input type="text" class="form-control details" formControlName="details">
+            </div>
+
+            <div class="col-sm-6 form-group">
+                <label for="notes" class="control-label">Notes</label>
+                <input type="text" class="form-control notes" formControlName="notes">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <button [disabled]="!courseForm.valid" class="add" type="submit">Add</button>
+            </div>
+            <div class="col-1">
+                <button class="cancel" (click)="onCancel()" type="button">Cancel</button>
+            </div>
+        </div>
+    </form>
 </div>
-</body>
-</html>
-
-

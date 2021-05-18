@@ -8,7 +8,7 @@
     <div class="tabela">
         <div class="filter">
             <mat-form-field>
-                <input matInput class="filter" (keyup)="applyFilter($event)" placeholder="Filter" #input>
+                <input matInput class="filterr" (keyup)="applyFilter($event)" placeholder="Filter" #input>
             </mat-form-field>
         </div>
     
@@ -28,19 +28,19 @@
     
                 <ng-container matColumnDef="teamMembers">
                     <th mat-header-cell *matHeaderCellDef> Team Members </th>
-                    <td mat-cell *matCellDef="let row; let i=index"> <button mat-button (click)="getId(row.id)">View</button> </td>
+                    <td mat-cell *matCellDef="let row; let i=index"> <button mat-button (click)="viewMembers(row.id)">View</button> </td>
                 </ng-container>
     
                 <ng-container matColumnDef="edit">
                     <th mat-header-cell *matHeaderCellDef> Edit </th>
-                    <td mat-cell *matCellDef="let row; let i=index"> <button mat-button (click)="getIdEdit(row.id)">
+                    <td mat-cell *matCellDef="let row; let i=index"> <button mat-button (click)="Edit(row.id)">
                             <mat-icon class="mat-18">system_update</mat-icon>
                         </button></td>
                 </ng-container>
     
                 <ng-container matColumnDef="delete">
                     <th mat-header-cell *matHeaderCellDef> Delete </th>
-                    <td mat-cell *matCellDef="let row; let i=index"> <button mat-button id="idd" (click)="getIdDelete(i)">
+                    <td mat-cell *matCellDef="let row; let i=index"> <button mat-button id="idd" (click)="Delete(i)">
                             <mat-icon class="mat-18">delete</mat-icon>
                         </button> </td>
                 </ng-container>
@@ -60,4 +60,6 @@
     </div>
     
     <button routerLink="/NewTeam" type="button" class="new">New</button>
+
+    <span *ngFor="let im of ime" style="position: relative; left: 250px;">{{im}}</span>
     </app-main-nav>
