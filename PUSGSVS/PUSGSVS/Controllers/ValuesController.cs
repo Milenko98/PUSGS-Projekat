@@ -12,7 +12,6 @@ namespace PUSGSVS.Controllers
   {
     // GET api/values
     [HttpGet]
-    [Route("Get")]
     public ActionResult<IEnumerable<string>> Get()
     {
       return new string[] { "value1", "value2" };

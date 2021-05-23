@@ -12,3 +12,16 @@ D:\WEB2 Projekat\PUSGS-Projekat\PUSGS\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PU
 D:\WEB2 Projekat\PUSGS-Projekat\PUSGS\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.RazorTargetAssemblyInfo.cache
 D:\WEB2 Projekat\PUSGS-Projekat\PUSGS\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.dll
 D:\WEB2 Projekat\PUSGS-Projekat\PUSGS\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.pdb
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\bin\Debug\netcoreapp2.1\PUSGSVS.deps.json
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\bin\Debug\netcoreapp2.1\PUSGSVS.runtimeconfig.json
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\bin\Debug\netcoreapp2.1\PUSGSVS.runtimeconfig.dev.json
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\bin\Debug\netcoreapp2.1\PUSGSVS.dll
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\bin\Debug\netcoreapp2.1\PUSGSVS.pdb
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.csproj.CoreCompileInputs.cache
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.RazorAssemblyInfo.cache
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.RazorAssemblyInfo.cs
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.AssemblyInfoInputs.cache
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.AssemblyInfo.cs
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.RazorTargetAssemblyInfo.cache
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.dll
+D:\CETVRTA GOD.DRUGI SEMESTAR\Veb2\VEB2 Lokalni\PUSGS-Projekat\PUSGSVS\PUSGSVS\obj\Debug\netcoreapp2.1\PUSGSVS.pdb

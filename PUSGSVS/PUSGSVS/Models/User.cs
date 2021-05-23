@@ -12,13 +12,12 @@ namespace PUSGSVS.Models
   {
     
     [Required]
-    public string Ime
-    {
-      get { return Ime; }
-      set { Ime = value; }
-    }
+        public string Ime { get; set; }
 
-    [Required]
+        [Required]
     public string Prezime { get; set; }
-  }
+
+    [Key]
+    public string Jmbg { get; set; }
+    }
 }

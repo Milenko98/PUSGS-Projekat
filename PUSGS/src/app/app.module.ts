@@ -84,7 +84,10 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { DialogViewTeamMembersComponent } from './Components/teams/dialog-view-team-members/dialog-view-team-members.component';
 import { DialogEditTeamComponent } from './Components/teams/dialog-edit-team/dialog-edit-team.component';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { ApproveDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/approve-dialog/approve-dialog.component'
+import { CancelDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/cancel-dialog/cancel-dialog.component';
+import { DenyDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/deny-dialog/deny-dialog.component';
 
 
 
@@ -145,11 +148,17 @@ import { DatePipe } from '@angular/common'
     MainNavComponent,
     DialogViewTeamMembersComponent,
     DialogEditTeamComponent,
+    ApproveDialogComponent,
+    CancelDialogComponent,
+    DenyDialogComponent
   ],
 
   entryComponents:[
     DialogViewTeamMembersComponent,
-    DialogEditTeamComponent
+    DialogEditTeamComponent,
+    ApproveDialogComponent,
+    CancelDialogComponent,
+    DenyDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -209,7 +218,7 @@ import { DatePipe } from '@angular/common'
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider(
-              '473100873768033'
+               '183997736950555'
             )
           },
           {

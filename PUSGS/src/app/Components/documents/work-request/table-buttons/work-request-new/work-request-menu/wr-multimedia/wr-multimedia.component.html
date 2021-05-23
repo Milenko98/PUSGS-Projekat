@@ -1,22 +1,29 @@
 <div class="slikaa">
-    <!-- <img [src]="url" class="img" height="200" width="200"><br>
+	<!-- <img [src]="url" class="img" height="200" width="200"><br>
     <div class="choose_file">
         <button type="button" style="width: 125px;">Choose Image</button>
         <input name="img" type="file" class="form-control" formControlName="slika" (change)="onSelectFile($event)"
             accept="image/*" />
     </div> -->
 
-
-    <p>A custom dropzone.</p>
-
-<div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
-	<ngx-dropzone-label>
-		<div>
-			<h2>My custom dropzone</h2>
-		</div>
-	</ngx-dropzone-label>
-	<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
-		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-	</ngx-dropzone-image-preview>
+	<div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+		<ngx-dropzone-label>
+			<div>
+				<h2>My custom dropzone</h2>
+			</div>
+		</ngx-dropzone-label>
+		<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+			[removable]="true" (removed)="onRemove(f)">
+			<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+		</ngx-dropzone-image-preview>
+	</div>
 </div>
+
+<div class="row dugmadi">
+	<div class="col-1">
+		<button [disabled]="files.length === 0" class="add btn btn-primary" type="button" (click)="onAdd()">Add</button>
+	</div>
+	<div class="col-1">
+		<button class="cancel" (click)="onRemoveAll()" type="button">Cancel</button>
+	</div>
 </div>

@@ -53,8 +53,8 @@ export class LoginPrijavaComponent implements OnInit {
     }
 
     loginWithFacebook(): void {
-      this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
-      this.form.get('email').setValue(this.socialUser.name);
+      this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((user)=>{console.log(this.socialUser.firstName)});
+      // this.form.get('email').setValue(this.socialUser.name);
     }
 
     loginWithGoogle(): void {

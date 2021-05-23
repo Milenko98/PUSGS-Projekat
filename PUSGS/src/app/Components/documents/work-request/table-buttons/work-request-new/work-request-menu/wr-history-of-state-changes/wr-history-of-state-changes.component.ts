@@ -5,6 +5,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { WorkRequest } from 'src/app/Entities/work-request';
+import { WorkRequestHistoryOfChanges } from 'src/app/Entities/work-request-history-of-changes';
+import { WorkRequestService } from 'src/app/Services/work-request.service';
+import { ApproveDialogComponent } from './approve-dialog/approve-dialog.component';
 
 @Component({
   selector: 'app-wr-history-of-state-changes',
@@ -13,29 +17,28 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class WrHistoryOfStateChangesComponent implements OnInit {
 
-  displayedColumns: string[] = ['wr', 'dateofchanges', 'name', 'lastname', 'status'];
-  dataSource: MatTableDataSource<UserData>;
-  counterApprove!: number;
-  counterDeny! : number;
-  counterCancel! : number;
+  displayedColumns: string[] = ['id', 'dateofchanges', 'name', 'lastname', 'status', 'approve', 'deny', 'cancel'];
+  dataSource: MatTableDataSource<WorkRequestHistoryOfChanges>;
+  historys = new Array<WorkRequestHistoryOfChanges>();
+  workRequestForEdit = this.wrService.GetWorkRequestForEdit();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
-    // Create 100 users
-    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-    const users = [{wr:"wr1", dateofchanges:"23.1.2010", name:"Milan", lastname:"Zinic",status:"No Status"},
-    {wr:"wr2", dateofchanges:"24.1.2010", name:"Jovan", lastname:"Pilic",status:"No Status"},
-    {wr:"wr3", dateofchanges:"25.1.2010", name:"Ivan", lastname:"Kijic",status:"No Status"},
-    {wr:"wr4", dateofchanges:"26.1.2010", name:"Goran", lastname:"Finic",status:"No Status"},
-    {wr:"wr5", dateofchanges:"27.1.2010", name:"Stefan", lastname:"Dimic",status:"No Status"},
-    {wr:"wr6", dateofchanges:"28.1.2010", name:"Milenko", lastname:"Siljic",status:"No Status"}]
+  constructor(private wrService: WorkRequestService, public dialog: MatDialog) {
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    
   }
   ngOnInit(): void {
+    
+    if(this.workRequestForEdit != null)
+    {
+      this.historys = this.wrService.GetHistory(this.workRequestForEdit.basicinfo.id);
+      this.dataSource = new MatTableDataSource(this.historys);
+    }
+    else{
+      this.dataSource = new MatTableDataSource(this.historys);
+    }
   }
 
   ngAfterViewInit() {
@@ -53,19 +56,35 @@ export class WrHistoryOfStateChangesComponent implements OnInit {
   }
 
 
-  onApprove():void
+  onApprove(id: string):void
   {
-    this.counterApprove++;
+    console.log(this.historys);
+    this.wrService.TransferId(id);
+    this.dialog.open(ApproveDialogComponent);
+    // this.wrService.onApprove(id);
+    // this.historys = this.wrService.GetHistory(this.workRequestForEdit.basicinfo.id);
+    // console.log(this.historys+"\n"+id);
+    // this.dataSource._updateChangeSubscription();
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
-  onDeny():void
+  onDeny(id: string):void
   {
-    this.counterDeny++;;
+    this.wrService.onDeny(id);
+    this.historys = this.wrService.GetHistory(this.workRequestForEdit.basicinfo.id);
+    this.dataSource._updateChangeSubscription();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
-  onCancel():void
+  onCancel(id: string):void
   {
-    this.counterCancel++;;
+    this.wrService.onCancel(id);
+    this.historys = this.wrService.GetHistory(this.workRequestForEdit.basicinfo.id);
+    this.dataSource._updateChangeSubscription();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 }
 

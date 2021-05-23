@@ -1,7 +1,11 @@
+import { WorkRequestBasicInfo } from "./work-request-basic-info";
+import { WorkRequestEquipments } from "./work-request-equipments";
+import { WorkRequestHistoryOfChanges } from "./work-request-history-of-changes";
+import { WorkRequestMultimedia } from "./work-request-multimedia";
+
 export class WorkRequest {
-    id: number;
-    startDate: string;
-    phoneNum: string;
-    status: string;
-    adress: string;
+    basicinfo: WorkRequestBasicInfo;
+    historyofchanges: WorkRequestHistoryOfChanges;
+    multimedia: WorkRequestMultimedia;
+    equipments: Array<WorkRequestEquipments>;
 }

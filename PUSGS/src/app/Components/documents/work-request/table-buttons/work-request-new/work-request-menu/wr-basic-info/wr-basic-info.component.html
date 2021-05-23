@@ -287,9 +287,25 @@
                 <input type="text" class="form-control notes" formControlName="notes">
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-6 form-group"
+                [ngClass]="{'has-error' : courseForm.get('selectAdress')?.errors && (courseForm.get('selectAdress')?.touched || courseForm.get('selectAdress')?.dirty)}">
+                <label for="selectAdress" class="control-label">Select adress</label>
+                <select class="form-control selectAdress" formControlName="selectAdress">
+                    <option *ngFor="let adress of adresses" [value]="adress">{{adress}}</option>
+                </select>
+                <div class="help-block"
+                    *ngIf="courseForm.get('selectAdress')?.errors && courseForm.get('selectAdress')?.touched || courseForm.get('selectAdress')?.dirty">
+                    <div *ngIf="courseForm.controls.selectAdress.errors?.required">
+                        Adress is required!
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-1">
-                <button [disabled]="!courseForm.valid" class="add" type="submit">Add</button>
+                <button [disabled]="!courseForm.valid" class="add btn btn-primary" type="submit">Add</button>
             </div>
             <div class="col-1">
                 <button class="cancel" (click)="onCancel()" type="button">Cancel</button>

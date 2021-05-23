@@ -35,7 +35,7 @@ namespace PUSGSVS
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-      services.AddDbContext<CRUD_ExampleContext>(options =>
+      services.AddDbContext<ApplicationDbContext>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
 
       services.AddCors();
@@ -92,17 +92,17 @@ namespace PUSGSVS
       {
         app.UseDeveloperExceptionPage();
       }
+            app.UseAuthentication();
 
-      app.UseCors(builder =>
+            app.UseMvc();
+            app.UseCors(builder =>
       builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
       .AllowAnyHeader()
       .AllowAnyMethod()
 
       );
 
-      app.UseAuthentication();
 
-      app.UseMvc();
     }
   }
 }

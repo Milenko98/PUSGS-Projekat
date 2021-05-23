@@ -70,6 +70,15 @@ input#lozinkaunos
     height: 50px;
 }
 
+.location
+{
+    height: 50px;
+}
+.dateofbirth
+{
+    height: 50px;
+}
+
 .select
 {
     position: relative;

@@ -26,18 +26,21 @@ export class TeamsComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private teamService: TeamServiceService, public dialog: MatDialog) {
-    this.teams = this.teamService.getTeams();
 
-    this.dataSource = new MatTableDataSource(this.teams);
     
   }
   ngOnInit(): void {
+    this.teams = this.teamService.getTeams();
+
+    this.dataSource = new MatTableDataSource(this.teams);
+    //this.editTeam();
   }
 
   ngAfterViewInit() 
   {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    
   }
 
   applyFilter(event: Event) 
@@ -58,7 +61,7 @@ export class TeamsComponent implements OnInit {
   editTeam()
   {
     let editedTeam = this.teamService.giveEditedTeam();
-    if(editedTeam != null){
+    if(editedTeam !== null){
       this.teams.forEach(element => {
         if(element.id == editedTeam.id){
           element.id = editedTeam.id;
@@ -66,6 +69,9 @@ export class TeamsComponent implements OnInit {
           element.teamMembers = editedTeam.teamMembers;
         }
       });
+      this.dataSource._updateChangeSubscription();
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     }
     else{
 

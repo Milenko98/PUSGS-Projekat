@@ -1,4 +1,5 @@
 export class WorkRequestBasicInfo {
+    id: string;
     type: string;
     status: string;
     incident: string;
@@ -13,4 +14,5 @@ export class WorkRequestBasicInfo {
     purpose: string;
     details: string;
     notes: string;
+    adress: string;
 }

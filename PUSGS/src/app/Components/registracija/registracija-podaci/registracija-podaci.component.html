@@ -111,6 +111,33 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('dateofbirth')?.errors && (courseForm.get('dateofbirth')?.touched || courseForm.get('dateofbirth')?.dirty)}">
+                    <label for="dateofbirth" class="control-label">Date of birth</label>
+                    <input type="datetime-local" class="form-control dateofbirth" formControlName="dateofbirth">
+                    <div class="help-block"
+                        *ngIf="courseForm.get('dateofbirth')?.errors && courseForm.get('dateofbirth')?.touched || courseForm.get('dateofbirth')?.dirty">
+                        <div *ngIf="courseForm.controls.dateofbirth.errors?.required">
+                            Date of birth is required!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 form-group"
+                    [ngClass]="{'has-error' : courseForm.get('location')?.errors && (courseForm.get('location')?.touched || courseForm.get('location')?.dirty)}">
+                    <label for="location" class="control-label">Location</label>
+                    <select class="form-control location" formControlName="location">
+                        <option *ngFor="let loc of locations" [value]="loc">{{loc}}</option>
+                    </select>
+                    <div class="help-block"
+                        *ngIf="courseForm.get('location')?.errors && courseForm.get('location')?.touched || courseForm.get('location')?.dirty">
+                        <div *ngIf="courseForm.controls.location.errors?.required">
+                            Location is required!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-1">
                     <button [disabled]="!courseForm.valid" class="add" type="submit">Add</button>
                 </div>

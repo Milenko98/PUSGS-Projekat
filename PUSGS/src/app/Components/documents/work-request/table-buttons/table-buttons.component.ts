@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkRequestService } from 'src/app/Services/work-request.service';
 
 @Component({
   selector: 'app-table-buttons',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableButtonsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private wrService: WorkRequestService) { }
+
+  
 
   ngOnInit(): void {
+  }
+
+  Metoda()
+  {
+    // this.wrService.PrimiZahtev();
   }
 
 }

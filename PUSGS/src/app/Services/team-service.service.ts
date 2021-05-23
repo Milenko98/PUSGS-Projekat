@@ -79,9 +79,8 @@ export class TeamServiceService {
 
   sendEditedTeam(editteam: NewTeam)
   {
-    this.editedTeam = editteam;
+     this.editedTeam = editteam;
   }
-
   giveEditedTeam()
   {
     return this.editedTeam;
