@@ -88,6 +88,7 @@ import { DatePipe } from '@angular/common';
 import { ApproveDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/approve-dialog/approve-dialog.component'
 import { CancelDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/cancel-dialog/cancel-dialog.component';
 import { DenyDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/deny-dialog/deny-dialog.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -201,7 +202,8 @@ import { DenyDialogComponent } from './Components/documents/work-request/table-b
     NgMultiSelectDropDownModule.forRoot(),
     DragDropModule,
     NgxDropzoneModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   
   exports: [

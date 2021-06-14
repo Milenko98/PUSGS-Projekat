@@ -33,7 +33,7 @@ export class TeamsComponent implements OnInit {
     this.teams = this.teamService.getTeams();
 
     this.dataSource = new MatTableDataSource(this.teams);
-    //this.editTeam();
+    this.editTeam();
   }
 
   ngAfterViewInit() 
@@ -56,6 +56,7 @@ export class TeamsComponent implements OnInit {
   viewMembers(id){
     this.teamService.sendId(id);
     this.dialog.open(DialogViewTeamMembersComponent);
+    this.ngOnInit();
   }
 
   editTeam()

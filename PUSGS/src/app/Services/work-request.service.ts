@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WorkRequest } from '../Entities/work-request';
 import { WorkRequestBasicInfo } from '../Entities/work-request-basic-info';
@@ -21,7 +22,7 @@ export class WorkRequestService {
   arrayhistory = new Array<WorkRequestHistoryOfChanges>();
   id!: string;
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
 
   AddBasicInfo(wr: WorkRequestBasicInfo, edited: boolean) {
@@ -63,8 +64,8 @@ export class WorkRequestService {
 
   AddMultimedia(files: File[], edited: boolean) {
     if (edited == false) {
-      this.workRequestForEdit.multimedia = new WorkRequestMultimedia;
-      this.workRequestForEdit.multimedia.files = [];
+      this.workrequest.multimedia = new WorkRequestMultimedia;
+      this.workrequest.multimedia.files = [];
       files.forEach(element => {
         this.workrequest.multimedia.files.push(element);
       });
@@ -165,27 +166,27 @@ export class WorkRequestService {
   }
 
   onApprove(id: string) {
-    this.arrayhistory.forEach(element => {
-      if (element.id == id) {
-        element.status = "Approved";
-      }
-    });
+    let changedHistory = new WorkRequestHistoryOfChanges();
+    if(this.arrayhistory[this.arrayhistory.length -1].status !== "Canceled"){
+      changedHistory = Object.assign({},this.arrayhistory[this.arrayhistory.length - 1],{status:"Approved"});
+      this.arrayhistory.push(changedHistory);
+    }        
   }
 
   onDeny(id: string) {
-    this.arrayhistory.forEach(element => {
-      if (element.id == id) {
-        element.status = "Denied";
-      }
-    });
+    let changedHistory = new WorkRequestHistoryOfChanges();
+    if(this.arrayhistory[this.arrayhistory.length -1].status !== "Canceled" && this.arrayhistory[this.arrayhistory.length -1].status !== "Approved"){
+      changedHistory = Object.assign({},this.arrayhistory[this.arrayhistory.length - 1],{status:"Denied"});
+      this.arrayhistory.push(changedHistory);
+    }   
   }
 
   onCancel(id: string) {
-    this.arrayhistory.forEach(element => {
-      if (element.id == id) {
-        element.status = "Canceled";
-      }
-    });
+    let changedHistory = new WorkRequestHistoryOfChanges();
+    if(this.arrayhistory[this.arrayhistory.length -1].status !== "Approved"){
+      changedHistory = Object.assign({},this.arrayhistory[this.arrayhistory.length - 1],{status:"Canceled"});
+      this.arrayhistory.push(changedHistory);
+    }    
   }
 
   TransferId(id: string) {

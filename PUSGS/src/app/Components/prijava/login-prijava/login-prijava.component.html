@@ -112,16 +112,16 @@
     <mat-card fxFlex="25%">
       <mat-toolbar fxLayoutAlign="center center">Tesla Distribution</mat-toolbar>
       <mat-toolbar fxLayoutAlign="center center" color="primary">Login</mat-toolbar>
-      <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+      <form [formGroup]="form" (submit)="onSubmit()" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
         <mat-form-field appearance="fill">
-          <input matInput placeholder="Enter email"  formControlName="email">
-          <mat-error *ngIf="form.controls['email'].invalid">Please enter a valid email</mat-error>
+          <input matInput placeholder="Enter Email"  formControlName="Email">
+          <mat-error *ngIf="form.controls['Email'].invalid">Please enter a valid Email</mat-error>
         </mat-form-field>
 
 
 
         <mat-form-field appearance="fill">
-          <input matInput type="password" placeholder="Enter password" formControlName="password"
+          <input matInput type="password" placeholder="Enter Password" formControlName="Password"
             [type]="hide ? 'password' : 'text'" required>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
             [attr.aria-pressed]="hide">
@@ -129,7 +129,7 @@
               {{hide ? 'visibility_off' : 'visibility'}}
             </mat-icon>
           </button>
-          <mat-error *ngIf="form.controls['password'].invalid">Please enter a valid password</mat-error>
+          <mat-error *ngIf="form.controls['Password'].invalid">Please enter a valid password</mat-error>
         </mat-form-field>
 
         <span class="forgot-password"><a routerLink="/dashboard">Forgot password?</a></span>
