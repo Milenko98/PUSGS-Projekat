@@ -5,18 +5,18 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item><mat-icon class="material-icons">search</mat-icon></a>
-      <a mat-list-item routerLink="/dashboard"><mat-icon>home</mat-icon></a>
-      <a mat-list-item routerLink="/documents"><mat-icon>text_snippet</mat-icon></a>
-      <a mat-list-item routerLink="/map"><mat-icon>language</mat-icon></a>
-      <a mat-list-item routerLink=""><mat-icon>call</mat-icon></a>
-      <a mat-list-item routerLink=""><mat-icon>work</mat-icon></a>
-      <a mat-list-item routerLink="/teams"><mat-icon>group_work</mat-icon></a>
-      <a mat-list-item routerLink="/consumers"><mat-icon>people</mat-icon></a>
+      <a mat-list-item matTooltip="Search" matTooltipPosition="right"><mat-icon class="material-icons">search</mat-icon></a>
+      <a mat-list-item routerLink="/dashboard" matTooltip="Home" matTooltipPosition="right"><mat-icon>home</mat-icon></a>
+      <a mat-list-item routerLink="/documents" matTooltip="Documents" matTooltipPosition="right"><mat-icon>text_snippet</mat-icon></a>
+      <a mat-list-item routerLink="/map" matTooltip="Map" matTooltipPosition="right"><mat-icon>language</mat-icon></a>
+      <a mat-list-item routerLink="" matTooltip="Calls" matTooltipPosition="right"><mat-icon>call</mat-icon></a>
+      <a mat-list-item routerLink="" matTooltip="Work" matTooltipPosition="right"><mat-icon>work</mat-icon></a>
+      <a mat-list-item routerLink="/teams" matTooltip="Teams" matTooltipPosition="right"><mat-icon>group_work</mat-icon></a>
+      <a mat-list-item routerLink="/consumers" matTooltip="Consumers" matTooltipPosition="right"><mat-icon>people</mat-icon></a>
       <br><br><br><br><br>
-      <a mat-list-item routerLink=""><mat-icon>settings</mat-icon></a>
-      <a mat-list-item routerLink="/Notifications"><mat-icon>notifications</mat-icon></a>
-      <a mat-list-item routerLink=""><mat-icon>login</mat-icon></a>
+      <a mat-list-item routerLink="" matTooltip="Settings" matTooltipPosition="right"><mat-icon>settings</mat-icon></a>
+      <a mat-list-item routerLink="/Notifications" matTooltip="Notifications" matTooltipPosition="right"><mat-icon>notifications</mat-icon></a>
+      <a mat-list-item (click)="_userService.logout()" matTooltip="Logout" matTooltipPosition="right"><mat-icon>login</mat-icon></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -29,7 +29,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Dashboard</span>
+      <span routerLink="/dashboard">Dashboard</span>
       <span class="spacer"></span>
       <p>Name Lastname</p>     
     </mat-toolbar>

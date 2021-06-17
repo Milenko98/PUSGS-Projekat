@@ -40,7 +40,8 @@
               "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "node_modules/animate.css/animate.css",
               "node_modules/ol/ol.css",
-              "node_modules/ngx-toastr/toastr.css"     
+              "node_modules/ngx-toastr/toastr.css"
+                  
               
             ],
             "scripts": [
@@ -50,6 +51,7 @@
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/hammerjs/hammer.min.js",
               "node_modules/apexcharts/dist/apexcharts.min.js"
+                                  
             ]
           },
           "configurations": {

@@ -2,36 +2,13 @@
 {
     position: relative;
     left: 130px;
-    top: -270px;
+    top: -240px;
     width: 1200px;
     font-size: 20px;
     border-spacing: 10px;
-    border-collapse: separate;     
-}
-
-button.checkcircle
-{
-    width: 30px;
-    height: 30px;
-    background-color: white;
-}
-
-button.plussquare
-{
-    width: 30px;
-    height: 30px;
-}
-
-button.trash
-{
-    width: 30px;
-    height: 30px;
-}
-
-button.trashall
-{
-    width: 30px;
-    height: 30px;
+    border-collapse: separate;
+    
+    
 }
 
 td.types
@@ -39,19 +16,72 @@ td.types
     padding-right: 10px;
 }
 
-button.dugmesacuvaj
-{
-    width: 100px;
-    height: 40px;
-    font-size: 20px;
-}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
 
-button.dugmeponisti
-{
-    width: 100px;
-    height: 40px;
-    font-size: 20px;
-    background-color: red;
-    border: solid red;
-}
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
 
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .container
+  {
+    position: relative;
+    top: -200px;
+    left: 125px;
+  }

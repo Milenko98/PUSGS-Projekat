@@ -52,28 +52,25 @@
       width: 600px;
   }*/
 
-  .btnfilter{
+
+
+  .btnmine{
     position: relative;
-    right: -700px;
-    top: 50px;
-}
-
-.btnmine{
-  position: relative;
-  right: -200px;
-  margin-right: 3rem;
-  top: 50px;
-}
-
-.btnadd{
-  position: relative;
-  margin-right: 3rem;
-  top: 50px;
-}
-
-.btnall{
-  position: relative;
-  margin-right: 3rem;
-  right: -195px;
-  top: 50px;
-}
+    right: -795px;
+    margin-right: -6.5rem;
+    top: 10px;
+  }
+  
+  .btnadd{
+    position: relative;
+    top: 10px;
+    margin-right: -6.5rem;
+    right: -560px;
+  }
+  
+  .btnall{
+    position: relative;
+    right: -1070px;
+    margin-right: -6.5rem;
+    top: 10px;
+  }

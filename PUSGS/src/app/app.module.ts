@@ -89,6 +89,8 @@ import { ApproveDialogComponent } from './Components/documents/work-request/tabl
 import { CancelDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/cancel-dialog/cancel-dialog.component';
 import { DenyDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/deny-dialog/deny-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 
@@ -181,6 +183,7 @@ import {HttpClientModule} from '@angular/common/http';
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTooltipModule,
     MatCardModule,
     MatMenuModule,
     ToastrModule.forRoot({
@@ -220,7 +223,7 @@ import {HttpClientModule} from '@angular/common/http';
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider(
-               '183997736950555'
+               '393669578595144'
             )
           },
           {

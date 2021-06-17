@@ -1,4 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
+import { PlanRadaBasicInfo } from 'src/app/Entities/plan-rada-basic-info';
+import { PlanRadaService } from 'src/app/Services/plan-rada.service';
+
+
+export interface PodaciTabelePlanovaRada {
+  id: string;
+  startdate: string;
+  phonenumber: string;
+  status: string;
+  address: string;
+}
+
+/*
+const PODACI_ZA_TABELU: PodaciTabelePlanovaRada[] = [
+      {id : "WR1", startdate: "12.4.2021", phonenumber : "063369474", status : "Draft",     address : "Mileticeva 2"},
+      {id : "WR2", startdate: "13.4.2021", phonenumber : "062363576", status : "Draft",     address : "Subticka 10"},
+      {id : "WR3", startdate: "14.4.2021", phonenumber : "064369579", status : "Submitted", address : "Nikole Pasica 12"},
+      {id : "WR4", startdate: "15.4.2021", phonenumber : "065389576", status : "Submitted", address : "Koce Kolarova 30"},
+      {id : "WR5", startdate: "16.4.2021", phonenumber : "060365578", status : "Submitted", address : "Masarikova 2"},
+      {id : "WR6", startdate: "16.4.2021", phonenumber : "065365378", status : "Submitted", address : "Masarikova 2"},
+      {id : "WR7", startdate: "16.4.2021", phonenumber : "061365977", status : "Submitted", address : "Masarikova 2"},
+
+];*/
 
 @Component({
   selector: 'app-tabela-planova-rada',
@@ -7,19 +34,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabelaPlanovaRadaComponent implements OnInit {
 
-  podaci_za_tabelu!:Array<any>;
+  displayedColumns: string[] = ['id', 'startdate', 'phonenumber', 'status', 'address'];
+  dataSource: MatTableDataSource<PlanRadaBasicInfo>;
 
-  constructor() { 
-    this.podaci_za_tabelu = [
-      {id : "WR1", StartDate: "12.4.2021", PhoneNumber : "066485923", Status : "Draft",     Address : "Mileticeva 2"},
-      {id : "WR2", StartDate: "13.4.2021", PhoneNumber : "064125963", Status : "Draft",     Address : "Subticka 10"},
-      {id : "WR3", StartDate: "14.4.2021", PhoneNumber : "069741583", Status : "Submitted", Address : "Nikole Pasica 12"},
-      {id : "WR4", StartDate: "15.4.2021", PhoneNumber : "063479256", Status : "Submitted", Address : "Koce Kolarova 30"},
-      {id : "WR5", StartDate: "16.4.2021", PhoneNumber : "061756349", Status : "Submitted", Address : "Masarikova 2"},
-    ]
+  //podaci_za_tabelu!:Array<any>;
+
+  constructor(private swService: PlanRadaService, private router: Router)
+   {
+
+    let planovirada = this.swService.GetBasicInfo();
+
+    this.dataSource = new MatTableDataSource(planovirada);
   }
 
-  ngOnInit(): void {
+  
+
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngOnInit(){
+    console.log(this.swService.GetAllPlanRada());
+    this.swService.OcistiObjekat();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  primeniFilter(filterValue: string) {
+     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  EditPlanRada(planRadaId)
+  {
+    this.swService.CallEdit(planRadaId);
+    this.router.navigate(['/SwitchingPlanNew/BasicInformations']);
   }
 
 }

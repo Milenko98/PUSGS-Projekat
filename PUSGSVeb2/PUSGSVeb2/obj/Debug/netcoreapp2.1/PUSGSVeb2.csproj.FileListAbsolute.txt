@@ -12,3 +12,17 @@ C:\Users\Milenko\Desktop\PUSGSVeb2\PUSGSVeb2\bin\Debug\netcoreapp2.1\PUSGSVeb2.p
 C:\Users\Milenko\Desktop\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.dll
 C:\Users\Milenko\Desktop\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.pdb
 C:\Users\Milenko\Desktop\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.csprojAssemblyReference.cache
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\bin\Debug\netcoreapp2.1\PUSGSVeb2.deps.json
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\bin\Debug\netcoreapp2.1\PUSGSVeb2.runtimeconfig.json
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\bin\Debug\netcoreapp2.1\PUSGSVeb2.runtimeconfig.dev.json
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\bin\Debug\netcoreapp2.1\PUSGSVeb2.dll
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\bin\Debug\netcoreapp2.1\PUSGSVeb2.pdb
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.csprojAssemblyReference.cache
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.csproj.CoreCompileInputs.cache
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.RazorAssemblyInfo.cache
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.RazorAssemblyInfo.cs
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.AssemblyInfoInputs.cache
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.AssemblyInfo.cs
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.RazorTargetAssemblyInfo.cache
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.dll
+D:\WEB2 Projekat\PUSGS-Projekat\PUSGSVeb2\PUSGSVeb2\obj\Debug\netcoreapp2.1\PUSGSVeb2.pdb
