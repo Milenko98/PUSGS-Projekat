@@ -8,6 +8,7 @@ import { NewTeam } from 'src/app/Entities/new-team';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogViewTeamMembersComponent } from './dialog-view-team-members/dialog-view-team-members.component';
 import { DialogEditTeamComponent } from './dialog-edit-team/dialog-edit-team.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-teams',
@@ -16,7 +17,7 @@ import { DialogEditTeamComponent } from './dialog-edit-team/dialog-edit-team.com
 })
 export class TeamsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'teamMembers', 'edit', 'delete'];
-  dataSource: MatTableDataSource<NewTeam>;
+  dataSource: MatTableDataSource<NewTeam> = new MatTableDataSource([]);
   teams! : Array<NewTeam>;
   team!: Teams;
   ime!:string[];
@@ -25,15 +26,27 @@ export class TeamsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private teamService: TeamServiceService, public dialog: MatDialog) {
+  constructor(private teamService: TeamServiceService, public dialog: MatDialog, private toastr: ToastrService) {
 
     
   }
   ngOnInit(): void {
-    this.teams = this.teamService.getTeams();
+    this.teamService.GetTeamDB().subscribe((res: any) => {
+      if (res !== null) {
+        this.teams = res;
+        this.dataSource = new MatTableDataSource(this.teams);
+        this.ngAfterViewInit();
+        this.editTeam();
+      } else {
+      }
+    },
+    err => {
+      console.log('Error!');
+      console.log(err);    
+    });
+    //this.teams = this.teamService.getTeams();
 
-    this.dataSource = new MatTableDataSource(this.teams);
-    this.editTeam();
+
   }
 
   ngAfterViewInit() 
@@ -96,12 +109,26 @@ export class TeamsComponent implements OnInit {
 
   Delete(i)
   {
-    console.log(i);
-    console.log(this.teams);
-    this.dataSource.data.splice(i,1);
-    this.dataSource._updateChangeSubscription();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // console.log(i);
+    // console.log(this.teams);
+    // this.dataSource.data.splice(i,1);
+    // this.dataSource._updateChangeSubscription();
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    this.teamService.DeleteTeamDB(i).subscribe((res: any) => {
+      if (res !== null) {
+        this.dataSource = new MatTableDataSource(this.teams);
+        this.ngAfterViewInit();
+        this.editTeam();
+        this.toastr.success("Uspesno brisanje tima","Success!");
+      } else {
+      }
+    },
+    err => {
+      console.log('Error!');
+      console.log(err);  
+      this.toastr.warning("Neuspesno brisanje tima","Error!");  
+    });
   }
 }
 

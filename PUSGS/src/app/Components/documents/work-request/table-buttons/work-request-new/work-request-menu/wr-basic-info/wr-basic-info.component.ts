@@ -15,6 +15,7 @@ export class WrBasicInfoComponent implements OnInit {
 
   courseForm!: FormGroup;
   typeofWorks =new Array<string>();
+  basicinfo = Array<WorkRequestBasicInfo>();
   types = new Array<string>();
   incidents = new Array<string>();
   createdWR = new WorkRequestBasicInfo();
@@ -24,6 +25,7 @@ export class WrBasicInfoComponent implements OnInit {
 
   constructor(private fb:FormBuilder, public datepipe: DatePipe, private wrService: WorkRequestService, private router: Router, private toastr: ToastrService) { }
   workRequestForEdit = this.wrService.GetWorkRequestForEdit();
+  pom = this.wrService.getPom();
 
   ngOnInit(): void {
     this.typeofWorks.push('popravak','obilazak');
@@ -52,6 +54,7 @@ export class WrBasicInfoComponent implements OnInit {
       selectAdress: new FormControl('', Validators.required)
     });
     if(this.workRequestForEdit != null){
+      if(!(this.pom && (Object.keys(this.pom).length === 0))){
       this.courseForm.get('selectType').setValue(this.workRequestForEdit.basicinfo.type);
       this.courseForm.get('status').setValue(this.workRequestForEdit.basicinfo.status);
       this.courseForm.get('selectIncident').setValue(this.workRequestForEdit.basicinfo.incident);
@@ -68,6 +71,24 @@ export class WrBasicInfoComponent implements OnInit {
       this.courseForm.get('notes').setValue(this.workRequestForEdit.basicinfo.notes);
       this.courseForm.get('selectAdress').setValue(this.workRequestForEdit.basicinfo.adress);
       this.courseForm.get('purpose').setValue(this.workRequestForEdit.basicinfo.purpose);
+      // console.log("Jebo majku vise: \n"+JSON.stringify(this.pom));
+      // this.courseForm.get('selectType').setValue(this.pom.type);
+      // this.courseForm.get('status').setValue(this.pom.status);
+      // this.courseForm.get('selectIncident').setValue(this.pom.incident);
+      // this.courseForm.get('selectTypeofWork').setValue(this.pom.typeOfWork);
+      // this.courseForm.get('startdate').setValue(this.pom.startDateTime);
+      // this.courseForm.get('enddate').setValue(this.pom.endDateTime);
+      // this.courseForm.get('emergencyWork').setValue(this.pom.emergencyWork);
+      // this.courseForm.get('company').setValue(this.pom.company);
+      // this.courseForm.get('phonenum').setValue(this.pom.phoneNum);
+      // this.courseForm.get('datecreated').setValue(this.pom.dateTimeCreated);
+      // this.courseForm.get('status').setValue(this.pom.status);
+      // this.courseForm.get('createdBy').setValue(this.pom.createdBy);
+      // this.courseForm.get('details').setValue(this.pom.details);
+      // this.courseForm.get('notes').setValue(this.pom.notes);
+      // this.courseForm.get('selectAdress').setValue(this.pom.adress);
+      // this.courseForm.get('purpose').setValue(this.pom.purpose);
+      }
     }
     else
     {
@@ -80,17 +101,37 @@ export class WrBasicInfoComponent implements OnInit {
   }
 
   onSubmit(){
-    let basicinfo = this.wrService.GetBasicInfo()!;
+
+    this.wrService.GetBasicInfo().subscribe(
+      (res: any) => {
+        if (res != null) {
+  
+          this.basicinfo =  new Array<WorkRequestBasicInfo>();  
+  
+          res.forEach(element => {
+
+            this.basicinfo.push(element);
+            
+          });
+         
+        } else {
+        }
+      },
+      err => {
+        console.log('greska');
+        console.log(err);
+    });
+     //this.basicinfo = this.wrService.GetBasicInfo()!;
     if(this.workRequestForEdit == null)
     {
 
-      if(basicinfo.length == 0)
+      if(this.basicinfo.length == 0)
       {
         this.createdWR.id = "WR"+1;
       }
       else
       {
-        let pom = basicinfo[basicinfo.length - 1].id;
+        let pom = this.basicinfo[this.basicinfo.length - 1].id;
         let brojstring = pom.substr(pom.length -1);
         let broj = Number(brojstring);
         let uvecan = broj +1;
@@ -105,6 +146,8 @@ export class WrBasicInfoComponent implements OnInit {
     this.createdWR.endDateTime = this.courseForm.value.enddate;
     this.createdWR.dateTimeCreated = this.courseForm.value.datecreated;
     this.createdWR.emergencyWork = this.courseForm.value.emergencyWork;
+    if(this.courseForm.value.emergencyWork === "")
+    this.createdWR.emergencyWork = false;
     this.createdWR.createdBy = this.courseForm.value.createdBy;
     this.createdWR.company = this.courseForm.value.company;
     this.createdWR.phoneNum = this.courseForm.value.phonenum;
@@ -112,12 +155,14 @@ export class WrBasicInfoComponent implements OnInit {
     this.createdWR.details = this.courseForm.value.details;
     this.createdWR.notes = this.courseForm.value.notes;
     this.createdWR.adress = this.courseForm.value.selectAdress;
-    if(this.workRequestForEdit != null)
+    this.createdWR.idd = this.pom.idd;
+    if(!(this.pom && (Object.keys(this.pom).length === 0)))
     {
       this.edited = true;
-      this.createdWR.id = this.workRequestForEdit.basicinfo.id;
+      this.createdWR.id = this.pom.id;
     }
     this.wrService.AddBasicInfo(this.createdWR,this.edited);
+    console.log("Basic info: "+JSON.stringify(this.courseForm.value));
     this.toastr.success('Success added basic info','Success');
   }
   

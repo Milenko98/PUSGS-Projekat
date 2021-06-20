@@ -88,7 +88,7 @@
                         <div class="example-container">
                             <h2>Choose team members</h2>
 
-                            <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                            <div cdkDropList [cdkDropListData]="this.todo" class="example-list"
                                 (cdkDropListDropped)="drop($event)">
                                 <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}
                                     {{item.lastname}}

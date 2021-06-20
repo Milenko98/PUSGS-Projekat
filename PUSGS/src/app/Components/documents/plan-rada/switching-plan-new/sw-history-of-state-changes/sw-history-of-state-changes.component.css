@@ -1,3 +1,54 @@
+.table
+{
+    position: relative;
+    left: 150px;
+    width: 1100px;
+    top:-230px;
+    border:rgb(209, 203, 203);
+    border-width: 2px;
+    border-style: solid;
+}
+
+th
+{
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    width: 500px;
+    text-align: left;  
+}
+
+td
+{
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    border: 0cm;
+}
+
+
+.blackArrow
+{
+    position: relative;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-style: none;
+}
+
+.arrow
+{
+    width: 0px;
+    height: 0px;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: -15px;
+    left: -10px; 
+}
+
 .approve
 {
     position: relative;
@@ -7,6 +58,7 @@
     font-style: italic;
     font-size: 18px;
     background-color: green;
+    bottom: 60px;
 }
 .approve:hover
 {
@@ -24,6 +76,7 @@
     font-style: italic;
     font-size: 18px;
     background-color: red;
+    bottom: 60px;
 }
 
 .cancel:hover
@@ -41,6 +94,7 @@
     font-style: italic;
     font-size: 18px;
     background-color: yellow;
+    bottom: 60px;
 }
 
 .deny:hover
@@ -53,67 +107,24 @@
 {
     position: relative;
     font-size: 20px;
-    bottom: -30px;
+    bottom: 50px;
 }
 
 .unosid
 {
     position: relative;
-    bottom: -30px;
+    bottom: 50px;
     margin-left: 10px;
+    font-size: 20px;
 }
 
 .btnunosid
 {
     position: relative;
-    bottom: -30px;
+    bottom: 50px;
     width: 80px;
     height: 40px;
     font-style: italic;
     font-size: 18px;
     margin-left: 20px;
-}
-
-.tabela 
-{
-    position: relative;
-    left: 50px;
-    top:  10px;
-    width: 1290px;
-}
-  
-.mat-form-field 
-{
-    width: 100%;
-}
-  
-td, th 
-{
-    width: 12.5%;
-    padding-right: 90px;
-    font-size: 20px;
-}
-
-.ss
-{
-    position: relative;
-    left: 100px;
-    width: 400px;
-}
-.filter
-{
-    width: 1290px;
-    height: 50px;
-    font-size: 20px;
-}
-.row
-{
-    width: 400px;
-}
-.dugmadi
-{
-    position: relative;
-    width: 400px;
-    top: 60px;
-    left: 100px;
 }

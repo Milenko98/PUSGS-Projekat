@@ -1,4 +1,5 @@
 export class WorkRequestBasicInfo {
+    idd: number;
     id: string;
     type: string;
     status: string;
@@ -15,4 +16,6 @@ export class WorkRequestBasicInfo {
     details: string;
     notes: string;
     adress: string;
+
+    constructor(){}
 }

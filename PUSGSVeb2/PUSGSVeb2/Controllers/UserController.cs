@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
@@ -163,6 +164,29 @@ namespace PUSGSVeb2.Controllers
             var googleApiTokenInfo = JsonConvert.DeserializeObject<GoogleApiTokenInfo>(response);
 
             return true;
+        }
+
+        [HttpGet]
+        [Route("GetUsers")]
+        public async Task<ActionResult<IEnumerable<UserFront>>> GetUsers()
+        {
+            List<User> users = new List<User>();
+            List<UserFront> usersFront = new List<UserFront>();
+
+            users = await _userManager.Users.ToListAsync();
+            
+            foreach(var item in users)
+            {
+                if (item.Role == "Clan ekipe")
+                {
+                    UserFront uf = new UserFront();
+                    uf.name = item.Firstname;
+                    uf.lastname = item.Lastname;
+                    usersFront.Add(uf);
+                }
+            }
+
+            return usersFront;
         }
     }
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,4 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class AppComponent {
   title = 'PUSGS';
-
-  constructor(private _userService:UserService){}
 }

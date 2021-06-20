@@ -9,7 +9,7 @@ import { WorkRequestService } from 'src/app/Services/work-request.service';
 })
 export class CancelDialogComponent implements OnInit {
 
-  id!: string;
+  id!: number;
 
   constructor(private wrService: WorkRequestService, public dialog: MatDialog) { }
 

@@ -1,6 +1,6 @@
-
 <!--
-    <div fxLayoutAlign="center" fxFlexFill class="glavni-div">
+<div class="container">
+    <div class="row">
         <body>
         <table id="tabelaplanova" class="table">
             
@@ -59,55 +59,7 @@
         </table>
 
     </body>
-    </div>  
-    --> 
-
-    <mat-form-field>
-        <input #podatak (keyup)="primeniFilter(podatak.value)" matInput placeholder="Filter">
-    </mat-form-field>
-
-    <div class="mat-elevation-z8">
-    <mat-table class="tabela" [dataSource]="dataSource" matSort>
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <mat-header-cell mat-sort-header *matHeaderCellDef> ID </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="startdate">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Start date </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.startDateTime}} </mat-cell>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="phonenumber">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.phoneNum}} </mat-cell>
-        </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="status">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="address">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.adress}} </mat-cell>
-          </ng-container>
-      
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="EditPlanRada(row.id)"></mat-row>
-
-        <!--Ukoliko nema rezultata za filter-->
-        <mat-row *matNoDataRow>
-            <mat-cell>No data matching the filter "{{podatak.value}}"</mat-cell>
-        </mat-row>
-
-      </mat-table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-    </div>
-
-
+    </div>   
+</div>
+-->
 

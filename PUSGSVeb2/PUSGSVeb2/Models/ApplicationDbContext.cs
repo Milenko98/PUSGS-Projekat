@@ -18,5 +18,12 @@ namespace PUSGSVeb2.Models
         }
 
         public DbSet<User> ApplicationUsers { get; set; }
+        public DbSet<WorkRequest> WorkRequests { get; set; }
+        public DbSet<WorkRequestBasicInfo> BasicInfos { get; set; }
+        public DbSet<WorkRequestEquipments> Equipments { get; set; }
+        public DbSet<WorkRequestHistoryOfChanges> HystoryOfChanges { get; set; }
+        public DbSet<WorkRequestMultimedia> Multimedia { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<TeamUser> TeamUsers { get; set; }
     }
 }

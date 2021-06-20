@@ -13,7 +13,8 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class RegistracijaPodaciComponent implements OnInit {
 
-  courseForm!: FormGroup;
+  courseForm:FormGroup;
+  Passwords:FormGroup;
   roles = new Array<string>();
   locations = new Array<string>();
   url = null;
@@ -35,12 +36,14 @@ export class RegistracijaPodaciComponent implements OnInit {
       firstname: new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(20)]),
       lastname: new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(20)]),
       lozinka: new FormControl('',Validators.required),
+      lozinka2:new FormControl(['', Validators.required]),
       select : new FormControl('',Validators.required),
       slika: new FormControl('',Validators.required),
       dateofbirth: new FormControl('', Validators.required),
-      location: new FormControl('',Validators.required)
+      location: new FormControl('',Validators.required),
     });
   }
+
 
 onSubmit(){
   // this.toastr.success('Successfully reggisteres!','Success');

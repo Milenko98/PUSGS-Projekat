@@ -9,9 +9,9 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      <ng-container matColumnDef="basicInfoId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> WorkRequest ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.basicInfoId}} </td>
       </ng-container>
 
       <!-- Progress Column -->
@@ -39,21 +39,21 @@
 
       <ng-container matColumnDef="approve">
         <th mat-header-cell *matHeaderCellDef> Approve </th>
-        <td mat-cell *matCellDef="let row"> <button mat-button  (click)="onApprove(row.id)">
+        <td mat-cell *matCellDef="let row"> <button mat-button  (click)="onApprove(row.basicInfoId)">
                 Approve
             </button> </td>
     </ng-container>
 
     <ng-container matColumnDef="deny">
       <th mat-header-cell *matHeaderCellDef> Deny </th>
-      <td mat-cell *matCellDef="let row"> <button mat-button  (click)="onDeny(row.id)">
+      <td mat-cell *matCellDef="let row"> <button mat-button  (click)="onDeny(row.basicInfoId)">
               Deny
           </button> </td>
   </ng-container>
 
   <ng-container matColumnDef="cancel">
     <th mat-header-cell *matHeaderCellDef> Cancel </th>
-    <td mat-cell *matCellDef="let row"> <button mat-button  (click)="onCancel(row.id)">
+    <td mat-cell *matCellDef="let row"> <button mat-button  (click)="onCancel(row.basicInfoId)">
             Cancel
         </button> </td>
 </ng-container>

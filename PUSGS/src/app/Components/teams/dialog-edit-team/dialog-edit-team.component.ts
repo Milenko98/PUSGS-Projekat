@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { NewTeam } from 'src/app/Entities/new-team';
 import { User } from 'src/app/Entities/user';
 import { TeamServiceService } from 'src/app/Services/team-service.service';
@@ -18,7 +19,7 @@ export class DialogEditTeamComponent implements OnInit {
   deletedTeamMembers = [];
   editTeam = new  NewTeam;
   existingTeamMembers: Array<User>=[];
-  constructor(private fb: FormBuilder, private teamService: TeamServiceService, private router: Router, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private teamService: TeamServiceService, private router: Router, public dialog: MatDialog, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.editTeam = this.teamService.giveEditTeam();
@@ -59,6 +60,17 @@ export class DialogEditTeamComponent implements OnInit {
     editedTeam.name = this.courseForm.value.name;
     editedTeam.teamMembers = this.existingTeamMembers;
     this.teamService.sendEditedTeam(editedTeam);
+    this.teamService.UpdateTeamDB(editedTeam).subscribe((res: any) => {
+      if (res !== null) {
+        this.toastr.success("Uspesan update tima!","Success!");
+      } else {
+      }
+    },
+    err => {
+      console.log('Error!');
+      console.log(err);  
+      this.toastr.warning("Neuspesan update tima!","Error!");  
+    });
     this.dialog.closeAll();
   }
 

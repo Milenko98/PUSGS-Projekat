@@ -4,16 +4,15 @@ button.dugmesacuvaj
     width: 100px;
     height: 40px;
     font-size: 20px;
-    margin-left: 100px;
-    margin-top: 300px;
+    margin-left: 350px;
     
 }
 
 .tabela
 {
     position: relative;
-    left: 260px;
-    top: -180px;
+    left: 330px;
+    top: -270px;
     width: 1100px;
     font-size: 20px;
     border-spacing: 10px;
@@ -30,35 +29,13 @@ button.dugmeponisti
     background-color: red;
     border: solid red;
     margin-left: 350px;
-    margin-top: 300px;
     
 }
 
-.naslov
+div.container
 {
     position: relative;
-    left: 600px;
-    top: -200px;
-    font-size: 40px;
-    width: 400px;
-    
-}
-
-.pretag
-{
-    background-color: white;
-    border: solid white;
-}
-
-
-.dodaj
-{
-    position: relative;
-    top: -410px;
-    margin-left: 270px;
-    width: 100px;
-    height: 40px;
-    font-size: 20px;
+    margin-top: 280px;
 }
 
 

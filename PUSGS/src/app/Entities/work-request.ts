@@ -5,7 +5,9 @@ import { WorkRequestMultimedia } from "./work-request-multimedia";
 
 export class WorkRequest {
     basicinfo: WorkRequestBasicInfo;
-    historyofchanges: WorkRequestHistoryOfChanges;
-    multimedia: WorkRequestMultimedia;
+    historyofchanges: Array<WorkRequestHistoryOfChanges>;
+    multimedia: Array<WorkRequestMultimedia>;
     equipments: Array<WorkRequestEquipments>;
+
+    constructor(){}
 }

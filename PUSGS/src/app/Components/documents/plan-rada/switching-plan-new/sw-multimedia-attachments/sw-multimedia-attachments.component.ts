@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { PlanRada } from 'src/app/Entities/plan-rada';
-import { PlanRadaService } from 'src/app/Services/plan-rada.service';
 
 @Component({
   selector: 'app-sw-multimedia-attachments',
@@ -10,46 +7,23 @@ import { PlanRadaService } from 'src/app/Services/plan-rada.service';
 })
 export class SwMultimediaAttachmentsComponent implements OnInit {
 
-  constructor(private swService: PlanRadaService, private toastr: ToastrService){}
-  files: File[] = [];
-  planRadaForEdit = this.swService.GetPlanRadaForEdit();
-  edited = false;
+  url = null;
 
-  ngOnInit(){
-    if(this.planRadaForEdit !== undefined && this.planRadaForEdit.multimedia !== undefined)
-    {
-      this.files = this.planRadaForEdit.multimedia.files;
-    }
+  constructor() { }
+
+  ngOnInit(): void {
   }
 
-  onSelect(event) {
-		console.log(event);
-		this.files.push(...event.addedFiles);
-	}
-
-  onRemove(event) {
-    if(this.planRadaForEdit != null)
+  onSelectFile(event)
+  {
+    if(event.target.files)
     {
-      this.edited = true;
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload=(event:any)=>{
+        this.url = event.target.result;
+      }
     }
-		console.log(event);
-		this.files.splice(this.files.indexOf(event), 1);
-    this.swService.AddMultimedia(this.files,this.edited);
-	}
-
-  onRemoveAll()
-  {
-    this.files.splice(0,this.files.length);
   }
-
-  onAdd()
-  {
-    if(this.planRadaForEdit != null)
-    {   
-      this.edited = true;   
-    }
-    this.swService.AddMultimedia(this.files,this.edited); 
-    this.toastr.success('Uspesno dadati multimedijalni sadrzaji','Success');
-    }
 
 }

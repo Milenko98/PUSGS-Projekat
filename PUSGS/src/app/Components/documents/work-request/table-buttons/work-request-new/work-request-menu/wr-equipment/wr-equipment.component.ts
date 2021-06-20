@@ -35,6 +35,7 @@ export class WrEquipmentComponent implements OnInit {
     { id: "6", name: "Wca", type: "Qip", coordinate: "63 07 20001", adress: "Julevar cara Lazara 23" }]
 
     this.dataSource = new MatTableDataSource(this.equipments);
+    console.log("konstruktor equipmenta");
   }
 
 
@@ -80,8 +81,20 @@ export class WrEquipmentComponent implements OnInit {
     if(this.workRequestForEdit != null)
     {
       this.edited = true;
+      // this.wrService.ChangeWorkRequest(this.workRequestForEdit).subscribe(
+      //   (res: any) => {
+      //     if (res != null ) {
+      //       this.toastr.success("Uspesna izmena!","Success");
+      //     }
+      //   }
+      // );
     }
     this.wrService.AddWorkRequest(this.edited);
+
+     this.wrService.AddWorkRequestDB().subscribe((res: any) => {
+       if (res != null ) {
+       }
+     });
      
     this.toastr.success('Success added work request','Success');
   }

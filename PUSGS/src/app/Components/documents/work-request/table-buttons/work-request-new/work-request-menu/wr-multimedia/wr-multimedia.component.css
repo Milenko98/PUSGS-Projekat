@@ -82,3 +82,21 @@ p{
   height: 50px;
   margin-left: 150px;
 }
+
+.upload{
+  font-weight:bold;
+  font-size: large;
+  color:#28a745;
+  margin-left: 900px;
+  line-height: 36px;
+  width: 200px;
+}
+
+.upload2{
+  font-weight:bold;
+  font-size: large;
+  color:#28a745;
+  margin-left: -140px;
+  line-height: 36px;
+  width: 200px;
+}

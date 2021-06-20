@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { WorkRequest } from 'src/app/Entities/work-request';
 import { WorkRequestService } from 'src/app/Services/work-request.service';
@@ -10,21 +11,28 @@ import { WorkRequestService } from 'src/app/Services/work-request.service';
 })
 export class WrMultimediaComponent implements OnInit{
 
-  constructor(private wrService: WorkRequestService, private toastr: ToastrService){}
+  constructor(private wrService: WorkRequestService, private toastr: ToastrService, private http: HttpClient){}
   files: File[] = [];
+  filename: string[];
   workRequestForEdit = this.wrService.GetWorkRequestForEdit();
   edited = false;
+  public progress: number;
+  public message: string;
+  @Output() public onUploadFinished = new EventEmitter();
 
   ngOnInit(){
-    if(this.workRequestForEdit !== undefined && this.workRequestForEdit.multimedia !== undefined)
+    if(this.workRequestForEdit !== undefined &&  this.workRequestForEdit !== null && this.workRequestForEdit.multimedia !== null)
     {
-      this.files = this.workRequestForEdit.multimedia.files;
+      this.workRequestForEdit.multimedia.forEach(element => {
+        this.files.push(element.file);
+      });
+      
     }
   }
 
 
 	onSelect(event) {
-		console.log(event);
+		console.log(event.name);
 		this.files.push(...event.addedFiles);
 	}
 
@@ -49,6 +57,26 @@ export class WrMultimediaComponent implements OnInit{
     {   
       this.edited = true;   
     }
+
+    if (this.files.length === 0) {
+      return;
+    }
+    let fileToUpload = <File[]>this.files;
+    const formData = new FormData();
+    fileToUpload.forEach(element => {
+      formData.append('file', element, element.name);
+    });
+    
+    this.http.post('https://localhost:44362/api/UploadFiles/Upload', formData, {reportProgress: true, observe: 'events'})
+      .subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress)
+          this.progress = Math.round(100 * event.loaded / event.total);
+        else if (event.type === HttpEventType.Response) {
+          this.message = 'Upload success.';
+          this.onUploadFinished.emit(event.body);
+        }
+      });
+
     this.wrService.AddMultimedia(this.files,this.edited); 
     this.toastr.success('Success added multimedia files','Success');
     }

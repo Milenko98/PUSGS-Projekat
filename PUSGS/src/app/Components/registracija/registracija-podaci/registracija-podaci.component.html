@@ -82,20 +82,19 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 form-group"
-                    [ngClass]="{'has-error' : courseForm.get('lozinka')?.errors && (courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty)}">
-                    <label for="lozinka" class="control-label">Password</label>
-                    <input type="password" id="lozinkaunos" class="form-control" placeholder="Password"
-                        formControlName="lozinka">
-                    <div class="help-block"
-                        *ngIf="courseForm.get('lozinka')?.errors && courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty">
-                        <div *ngIf="courseForm.controls.lozinka.errors?.required">
-                            Password is required!
+                <div class="row">
+                    <div class="col-sm-6 form-group"
+                        [ngClass]="{'has-error' : courseForm.get('lozinka')?.errors && (courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty)}">
+                        <label for="lozinka" class="control-label">Password</label>
+                        <input type="password" id="lozinkaunos" class="form-control" placeholder="Password"
+                            formControlName="lozinka">
+                        <div class="help-block"
+                            *ngIf="courseForm.get('lozinka')?.errors && courseForm.get('lozinka')?.touched || courseForm.get('lozinka')?.dirty">
+                            <div *ngIf="courseForm.controls.lozinka.errors?.required">
+                                Password is required!
+                            </div>
                         </div>
                     </div>
-                </div>
-
                 <div class="col-sm-6 form-group"
                     [ngClass]="{'has-error' : courseForm.get('select')?.errors && (courseForm.get('select')?.touched || courseForm.get('select')?.dirty)}">
                     <label for="select" class="control-label">Role</label>
@@ -109,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
             <div class="row">
                 <div class="col-sm-6 form-group"
                     [ngClass]="{'has-error' : courseForm.get('dateofbirth')?.errors && (courseForm.get('dateofbirth')?.touched || courseForm.get('dateofbirth')?.dirty)}">

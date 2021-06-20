@@ -122,8 +122,11 @@ a.linkzaboravljenalozinka
         padding: 20px;
     }
     
-    .btnreport {   
-        width: 100%;
+    .btnreport {
+        left: -1800px;
+        top: 200px;
+        width: 200px;
+       
     }
     .fb
     {

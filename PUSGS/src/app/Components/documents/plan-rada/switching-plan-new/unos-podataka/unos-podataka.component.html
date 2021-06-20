@@ -1,4 +1,5 @@
-<!-- <div class="container">
+<!--
+<div class="container">
     <table class="tabela">
         <tr>
             <td>
@@ -58,33 +59,38 @@
 
         <tr>
             <td>
+            <label for="workrequest">Work request:</label>
+            </td>
+            <td>
+            <select name="workrequest" id="workrequest">
+                <option value="wr150">WR150</option>
+                <option value="wr151">WR151</option>
+                <option value="wr152">WR152</option>
+            </select>
+            </td>  
+
+            <td>
+                <label for="fieldcrew">Field crew:</label>
+            </td>
+            <td>
+                <select name="fielcrew" id="fieldcrew">
+                    <option value="nscrew">NS Crew</option>
+                    <option value="zrcrew">ZR Crew</option>
+                    <option value="bgcrew">BG Crew</option>
+                </select>
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <td>
                 <label>Type of work:</label>
             </td>
             <td>
                 <select name="docTypes" id="docTypes">
                     <option value="equipment">Equipment</option>
                 </select>
-            </td>
-
-            
-        </tr>
-
-        <tr>
-            <td>
-                <label>Incident:</label>
-            </td>
-            <td>
-                <label>INC1</label>
-            </td>
-
-            <td>
-                <label>Emergency work:</label>
-            </td>
-            <td>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
             </td>
 
             
@@ -144,174 +150,191 @@
             </td>
         </tr>
 
+        <tr>
+            <td colspan="3" align="center">
+                <button class="btn dugmesacuvaj btn-primary" type="submit" id="sacuvaj" name="sacuvaj">Sacuvaj</button>
+            </td>
+
+            <td>
+                <button class="btn dugmeponisti btn-primary" type="button" id="ponisti" name="ponisti">Ponisti</button>
+
+            </td>
+
+        </tr>
+
+
     </table>
-</div> -->
+
+</div>-->
+
+<div fxLayoutAlign="center center" fxFlexFill class="glavni-div">
+<table class="tabela">
+    <tr>
+        <td>
+            <mat-label>Type:</mat-label>
+        </td>
+        <td class="types">
+            <select matNativeControl name="types" id="types">               
+                <option value="plannedWork">Planned Work</option>
+                <option value="unplannedWork">Unplanned Work</option>                   
+            </select>               
+        </td>
+
+        <td>
+            <mat-label>Company:</mat-label>
+        </td>
+        <td>
+            <input matInput  placeholder="Enter company name" id="company" type="text">
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+        <mat-label>Status:</mat-label>
+        </td>
+        <td>
+        <mat-label>Draft</mat-label> 
+        </td>  
+
+        <td>
+            <mat-label>Phone No:</mat-label>
+        </td>
+        <td>
+            <input matInput  placeholder="Enter phone number" id="phonenumber" type="number">
+        </td>
+        
+    </tr>
+    <tr>
+        <td>
+        <mat-label for="incidents">Incident:</mat-label>
+        </td>
+        <td>
+        <select matNativeControl name="incidents" id="incidents">
+            <option value="inc1">INC1</option>
+            <option value="inc2">INC2</option>
+            <option value="inc3">INC3</option>
+        </select>
+        </td>  
+
+        <td>
+            <mat-label>Date/time created:</mat-label>
+        </td>
+        <td>
+            <input matInput id="datetimecreated" type="datetime-local" placeholder="start date">
+  
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+        <mat-label for="workrequest">Work request:</mat-label>
+        </td>
+        <td>
+        <select matNativeControl name="workrequest" id="workrequest">
+            <option value="wr150">WR150</option>
+            <option value="wr151">WR151</option>
+            <option value="wr152">WR152</option>
+        </select>
+        </td>  
+
+        <td>
+            <mat-label for="fieldcrew">Field crew:</mat-label>
+        </td>
+        <td>
+            <select matNativeControl name="fielcrew" id="fieldcrew">
+                <option value="nscrew">NS Crew</option>
+                <option value="zrcrew">ZR Crew</option>
+                <option value="bgcrew">BG Crew</option>
+            </select>
+        </td>
 
 
-<div class="container">
-    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('selectType')?.errors && (courseForm.get('selectType')?.touched || courseForm.get('selectType')?.dirty)}">
-                <label for="selectType" class="control-label">Type</label>
-                <select class="form-control selectType" formControlName="selectType">
-                    <option *ngFor="let type of types" [value]="type">{{type}}</option>
-                </select>
-                <div class="help-block"
-                    *ngIf="courseForm.get('selectType')?.errors && courseForm.get('selectType')?.touched || courseForm.get('selectType')?.dirty">
-                    <div *ngIf="courseForm.controls.selectType.errors?.required">
-                        Type is required!
-                    </div>
-                </div>
-            </div>
+    </tr>
 
-            <div class="col-sm-6 form-group">
-                <label for="status" class="control-label">Status</label>
-                <input type="text" style="font-weight: bold;" readonly class="form-control" formControlName="status">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                <label for="selectIncident" class="control-label">Incident</label>
-                <select class="form-control selectIncident" formControlName="selectIncident">
-                    <option *ngFor="let inc of incidents" [value]="inc">{{inc}}</option>
-                </select>
-            </div>
+    <tr>
+        <td>
+            <mat-label>Type of work:</mat-label>
+        </td>
+        <td>
+            <select matNativeControl name="docTypes" id="docTypes">
+                <option value="equipment">Equipment</option>
+            </select>
+        </td>
 
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('selectTypeofWork')?.errors && (courseForm.get('selectTypeofWork')?.touched || courseForm.get('selectTypeofWork')?.dirty)}">
-                <label for="selectTypeofWork" class="control-label">Type of work</label>
-                <select class="form-control selectTypeofWork" formControlName="selectTypeofWork">
-                    <option *ngFor="let type of typeofWorks" [value]="type">{{type}}</option>
-                </select>
-                <div class="help-block"
-                    *ngIf="courseForm.get('selectTypeofWork')?.errors && courseForm.get('selectTypeofWork')?.touched || courseForm.get('selectTypeofWork')?.dirty">
-                    <div *ngIf="courseForm.controls.selectTypeofWork.errors?.required">
-                        Type of work is required!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('startdate')?.errors && (courseForm.get('startdate')?.touched || courseForm.get('startdate')?.dirty)}">
-                <label for="startdate" class="control-label">Start date time</label>
-                <input type="datetime-local" class="form-control startdate" formControlName="startdate">
-                <div class="help-block"
-                    *ngIf="courseForm.get('startdate')?.errors && courseForm.get('startdate')?.touched || courseForm.get('startdate')?.dirty">
-                    <div *ngIf="courseForm.controls.startdate.errors?.required">
-                        Start Date time is required!
-                    </div>
-                </div>
-            </div>
+        
+    </tr>
+    <tr>
+        <td>
+            <mat-label>Start date/time:</mat-label>
+            </td>
+            <td>
+            <input matInput  type="datetime-local" placeholder="start date">
+        </td>
+    </tr>
 
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('enddate')?.errors && (courseForm.get('enddate')?.touched || courseForm.get('enddate')?.dirty)}">
-                <label for="enddate" class="control-label">End date time</label>
-                <input type="datetime-local" class="form-control enddate" formControlName="enddate">
-                <div class="help-block"
-                    *ngIf="courseForm.get('enddate')?.errors && courseForm.get('enddate')?.touched || courseForm.get('enddate')?.dirty">
-                    <div *ngIf="courseForm.controls.enddate.errors?.required">
-                        End Date time is required!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                <label for="createdBy" class="control-label">Created by</label>
-                <input type="text" style="font-weight: bold;" readonly class="form-control createdBy" formControlName="createdBy">
-            </div>
+    <tr>
+        <td>
+            <mat-label>End date/time:</mat-label>
+        </td>
+        <td>
+            <input matInput type="datetime-local" placeholder="start date">
+        </td>
+    </tr>
 
-            <!--
-            <div class="col-sm-6 form-group">
-                <label class="switch">
-                    <input type="checkbox" class="form-control emergencyWork" formControlName="emergencyWork">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            -->
-        </div>
+    <tr>
+        <td>
+        <mat-label>Created by:</mat-label>
+        </td>
+        <td>
+        <mat-label>Peter Peterson</mat-label> 
+        </td>
 
-        <div class="row">
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('company')?.errors && (courseForm.get('company')?.touched || courseForm.get('company')?.dirty)}">
-                <label for="company" class="control-label">Company</label>
-                <input type="text" class="form-control company" formControlName="company">
-                <div class="help-block"
-                    *ngIf="courseForm.get('company')?.errors && courseForm.get('company')?.touched || courseForm.get('company')?.dirty">
-                    <div *ngIf="courseForm.controls.company.errors?.required">
-                        Company is required!
-                    </div>
-                </div>
-            </div>
+    </tr>
 
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('phonenum')?.errors && (courseForm.get('phonenum')?.touched || courseForm.get('phonenum')?.dirty)}">
-                <label for="phonenum" class="control-label">Phone number</label>
-                <input type="text" class="form-control phonenum" formControlName="phonenum">
-                <div class="help-block"
-                    *ngIf="courseForm.get('phonenum')?.errors && courseForm.get('phonenum')?.touched || courseForm.get('phonenum')?.dirty">
-                    <div *ngIf="courseForm.controls.phonenum.errors?.required">
-                        Phone number is required!
-                    </div>
-                </div>
-            </div>
-        </div>
+    <tr>
+        <td>
+        <mat-label>Purpose:</mat-label>
+        </td>
+        <td>
+        <input matInput  placeholder="Enter purpose" id="purpose" type="text">
+        </td>
+    </tr>
 
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                <label for="datecreated" class="control-label">Date time created</label>
-                <input type="text" style="font-weight: bold;" readonly class="form-control datecreated" formControlName="datecreated">
-            </div>
+    <tr>
+        <td>
+        <mat-label>Details:</mat-label>
+        </td>
+        <td>
+        <input matInput  placeholder="Enter details" id="details" type="text">
+        </td>
+    </tr>
 
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('purpose')?.errors && (courseForm.get('purpose')?.touched || courseForm.get('purpose')?.dirty)}">
-                <label for="purpose" class="control-label">Purpose</label>
-                <input type="text" class="form-control purpose" formControlName="purpose">
-                <div class="help-block"
-                    *ngIf="courseForm.get('purpose')?.errors && courseForm.get('purpose')?.touched || courseForm.get('purpose')?.dirty">
-                    <div *ngIf="courseForm.controls.purpose.errors?.required">
-                        Purpose is required!
-                    </div>
-                </div>
-            </div>
-        </div>
+    <tr>
+        <td>
+        <mat-label>Notes:</mat-label>
+        </td>
+        <td>
+        <input matInput  placeholder="Enter notes" id="notes" type="text">
+        </td>
+    </tr>
 
-        <div class="row">
-            <div class="col-sm-6 form-group">
-                <label for="details" class="control-label">Details</label>
-                <input type="text" class="form-control details" formControlName="details">
-            </div>
+    <tr>
+        <td colspan="3" align="center">
+            <button mat-button class="btn dugmesacuvaj btn-primary" type="submit" id="sacuvaj" name="sacuvaj">Sacuvaj</button>
+        </td>
 
-            <div class="col-sm-6 form-group">
-                <label for="notes" class="control-label">Notes</label>
-                <input type="text" class="form-control notes" formControlName="notes">
-            </div>
-        </div>
+        <td>
+            <button mat-button class="btn dugmeponisti btn-primary" type="button" id="ponisti" name="ponisti">Ponisti</button>
 
-        <div class="row">
-            <div class="col-sm-6 form-group"
-                [ngClass]="{'has-error' : courseForm.get('selectAdress')?.errors && (courseForm.get('selectAdress')?.touched || courseForm.get('selectAdress')?.dirty)}">
-                <label for="selectAdress" class="control-label">Select adress</label>
-                <select class="form-control selectAdress" formControlName="selectAdress">
-                    <option *ngFor="let adress of adresses" [value]="adress">{{adress}}</option>
-                </select>
-                <div class="help-block"
-                    *ngIf="courseForm.get('selectAdress')?.errors && courseForm.get('selectAdress')?.touched || courseForm.get('selectAdress')?.dirty">
-                    <div *ngIf="courseForm.controls.selectAdress.errors?.required">
-                        Adress is required!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1">
-                <button [disabled]="!courseForm.valid" class="add btn btn-primary" type="submit">Add</button>
-            </div>
-            <div class="col-1">
-                <button class="cancel" (click)="onCancel()" type="button">Cancel</button>
-            </div>
-        </div>
-    </form>
+        </td>
+
+    </tr>
+
+
+</table>
 </div>
+
+
+
+

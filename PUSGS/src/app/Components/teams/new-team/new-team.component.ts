@@ -9,6 +9,7 @@ import { User } from 'src/app/Entities/user';
 import { TeamServiceService } from 'src/app/Services/team-service.service';
 import { Teams } from '../teams.component';
 import {Router} from "@angular/router"
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-team',
@@ -19,15 +20,27 @@ export class NewTeamComponent implements OnInit {
 
   courseForm!: FormGroup;
   newTeam = new  NewTeam;
+  todo = new Array<User>();
  // todo!:Array<User>;
   ngOnInit(): void {
     this.initForm();
-    this.Dobavljeni();
+    this.teamService.GiveUsersDB().subscribe((res: any) => {
+      if (res !== null) {
+        this.todo = res
+      } else {
+      }
+    },
+    err => {
+      console.log('Error!');
+      console.log(err);    
+    });
+    console.log(this.todo);
+    //this.Dobavljeni();
     //this.teamService.exusers.subscribe(item=>this.todo = item);
   }
-  constructor(private fb: FormBuilder, private teamService: TeamServiceService, private router: Router) { }
+  constructor(private fb: FormBuilder, private teamService: TeamServiceService, private router: Router, private toastr: ToastrService) { }
 
-  todo = this.teamService.giveExistingUsers();
+  //todo = this.teamService.giveExistingUsers();
 
   done = [
   ];
@@ -49,7 +62,7 @@ export class NewTeamComponent implements OnInit {
     else
     this.newTeam.id = obrnutaLista[obrnutaLista.length - 1].id + 1;
     this.teamService.addNewTeam(this.newTeam);  
-    alert("Uspesno ste kreirali tim!");
+    this.toastr.success("Uspesno ste kreirali tim!", "Success");
     this.router.navigate(['/teams']);
   }
 

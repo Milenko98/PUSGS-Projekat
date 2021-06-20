@@ -19,7 +19,7 @@ import { DenyDialogComponent } from './deny-dialog/deny-dialog.component';
 })
 export class WrHistoryOfStateChangesComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'dateofchanges', 'name', 'lastname', 'status', 'approve', 'deny', 'cancel'];
+  displayedColumns: any[] = ['basicInfoId', 'dateofchanges', 'name', 'lastname', 'status', 'approve', 'deny', 'cancel'];
   dataSource: MatTableDataSource<WorkRequestHistoryOfChanges>;
   historys = new Array<WorkRequestHistoryOfChanges>();
   workRequestForEdit = this.wrService.GetWorkRequestForEdit();
@@ -35,7 +35,7 @@ export class WrHistoryOfStateChangesComponent implements OnInit {
     
     if(this.workRequestForEdit != null)
     {
-      this.historys = this.wrService.GetHistory(this.workRequestForEdit.basicinfo.id);
+      this.historys = this.wrService.GetHistory(this.workRequestForEdit.basicinfo.idd);
       this.dataSource = new MatTableDataSource(this.historys);
     }
     else{
@@ -58,14 +58,14 @@ export class WrHistoryOfStateChangesComponent implements OnInit {
   }
 
 
-  onApprove(id: string):void
+  onApprove(id: number):void
   {
     console.log(this.historys);
     this.wrService.TransferId(id);
     this.dialog.open(ApproveDialogComponent);
   }
 
-  onDeny(id: string):void
+  onDeny(id: number):void
   {
     this.wrService.TransferId(id);
     this.dialog.open(DenyDialogComponent);
@@ -76,7 +76,7 @@ export class WrHistoryOfStateChangesComponent implements OnInit {
     // this.dataSource.sort = this.sort;
   }
 
-  onCancel(id: string):void
+  onCancel(id: number):void
   {
     this.wrService.TransferId(id);
     this.dialog.open(CancelDialogComponent);

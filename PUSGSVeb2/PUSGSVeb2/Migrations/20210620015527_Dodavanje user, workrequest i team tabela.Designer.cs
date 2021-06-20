@@ -10,8 +10,8 @@ using PUSGSVeb2.Models;
 namespace PUSGSVeb2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210614100909_pravljenje tabele user-a")]
-    partial class pravljenjetabeleusera
+    [Migration("20210620015527_Dodavanje user, workrequest i team tabela")]
+    partial class Dodavanjeuserworkrequestiteamtabela
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -191,6 +191,163 @@ namespace PUSGSVeb2.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("PUSGSVeb2.Models.Team", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("name");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.TeamUser", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TeamIdd");
+
+                    b.Property<string>("lastname");
+
+                    b.Property<string>("name");
+
+                    b.HasKey("id");
+
+                    b.ToTable("TeamUsers");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequest", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("basicinfoidd");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("basicinfoidd");
+
+                    b.ToTable("WorkRequests");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequestBasicInfo", b =>
+                {
+                    b.Property<int>("idd")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("adress");
+
+                    b.Property<string>("company");
+
+                    b.Property<string>("createdBy");
+
+                    b.Property<string>("dateTimeCreated");
+
+                    b.Property<string>("details");
+
+                    b.Property<bool>("emergencyWork");
+
+                    b.Property<string>("endDateTime");
+
+                    b.Property<string>("id");
+
+                    b.Property<string>("incident");
+
+                    b.Property<string>("notes");
+
+                    b.Property<string>("phoneNum");
+
+                    b.Property<string>("purpose");
+
+                    b.Property<string>("startDateTime");
+
+                    b.Property<string>("status");
+
+                    b.Property<string>("type");
+
+                    b.Property<string>("typeOfWork");
+
+                    b.HasKey("idd");
+
+                    b.ToTable("BasicInfos");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequestEquipments", b =>
+                {
+                    b.Property<int>("idd")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BasicInfoId");
+
+                    b.Property<int?>("WorkRequestid");
+
+                    b.Property<string>("adress");
+
+                    b.Property<string>("coordinate");
+
+                    b.Property<string>("name");
+
+                    b.Property<string>("type");
+
+                    b.HasKey("idd");
+
+                    b.HasIndex("WorkRequestid");
+
+                    b.ToTable("Equipments");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequestHistoryOfChanges", b =>
+                {
+                    b.Property<int>("idd")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BasicInfoId");
+
+                    b.Property<int?>("WorkRequestid");
+
+                    b.Property<string>("dateofchanges");
+
+                    b.Property<string>("lastname");
+
+                    b.Property<string>("name");
+
+                    b.Property<string>("status");
+
+                    b.HasKey("idd");
+
+                    b.HasIndex("WorkRequestid");
+
+                    b.ToTable("HystoryOfChanges");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequestMultimedia", b =>
+                {
+                    b.Property<int>("idd")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BasicInfoId");
+
+                    b.Property<int?>("WorkRequestid");
+
+                    b.Property<string>("filename");
+
+                    b.HasKey("idd");
+
+                    b.HasIndex("WorkRequestid");
+
+                    b.ToTable("Multimedia");
+                });
+
             modelBuilder.Entity("PUSGSVeb2.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -257,6 +414,34 @@ namespace PUSGSVeb2.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequest", b =>
+                {
+                    b.HasOne("PUSGSVeb2.Models.WorkRequestBasicInfo", "basicinfo")
+                        .WithMany()
+                        .HasForeignKey("basicinfoidd");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequestEquipments", b =>
+                {
+                    b.HasOne("PUSGSVeb2.Models.WorkRequest")
+                        .WithMany("equipments")
+                        .HasForeignKey("WorkRequestid");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequestHistoryOfChanges", b =>
+                {
+                    b.HasOne("PUSGSVeb2.Models.WorkRequest")
+                        .WithMany("historyofchanges")
+                        .HasForeignKey("WorkRequestid");
+                });
+
+            modelBuilder.Entity("PUSGSVeb2.Models.WorkRequestMultimedia", b =>
+                {
+                    b.HasOne("PUSGSVeb2.Models.WorkRequest")
+                        .WithMany("multimedia")
+                        .HasForeignKey("WorkRequestid");
                 });
 #pragma warning restore 612, 618
         }

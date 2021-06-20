@@ -103,8 +103,8 @@ export class LoginPrijavaComponent implements OnInit {
           (res: any) => {
             console.log(res);
             localStorage.setItem('token', res.token);
-            localStorage.setItem('userName', res.Email);
-            localStorage.setItem('uloga', res.uloga);
+            localStorage.setItem('userName', res.email);
+            localStorage.setItem('uloga', res.role);
             this.router.navigateByUrl('/dashboard');
           },
           err => {

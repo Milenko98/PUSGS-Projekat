@@ -21,7 +21,7 @@ import { MySafetyDocsComponent } from './Components/dashboard/my-safety-docs/my-
 import { DocumentsPieComponent } from './Components/dashboard/documents-pie/documents-pie.component';
 import { RegistracijaComponent } from './Components/registracija/registracija.component';
 import { RegistracijaPodaciComponent } from './Components/registracija/registracija-podaci/registracija-podaci.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DocumentsComponent } from './Components/documents/documents.component';
 import { DocumentsCoreComponent } from './Components/documents/documents-core/documents-core.component';
 import { PlanRadaComponent } from './Components/documents/plan-rada/plan-rada.component';
@@ -89,8 +89,6 @@ import { ApproveDialogComponent } from './Components/documents/work-request/tabl
 import { CancelDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/cancel-dialog/cancel-dialog.component';
 import { DenyDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/deny-dialog/deny-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
-import {MatTooltipModule} from '@angular/material/tooltip';
-
 
 
 
@@ -169,6 +167,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     NgbModule,
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatTableModule,
@@ -183,7 +182,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTooltipModule,
     MatCardModule,
     MatMenuModule,
     ToastrModule.forRoot({
@@ -223,7 +221,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider(
-               '393669578595144'
+               '183997736950555'
             )
           },
           {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PUSGSVeb2.Migrations
 {
-    public partial class Dodavanjeusera : Migration
+    public partial class Dodavanjeuserworkrequestiteamtabela : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,6 +53,62 @@ namespace PUSGSVeb2.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BasicInfos",
+                columns: table => new
+                {
+                    idd = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    id = table.Column<string>(nullable: true),
+                    type = table.Column<string>(nullable: true),
+                    status = table.Column<string>(nullable: true),
+                    incident = table.Column<string>(nullable: true),
+                    typeOfWork = table.Column<string>(nullable: true),
+                    startDateTime = table.Column<string>(nullable: true),
+                    endDateTime = table.Column<string>(nullable: true),
+                    createdBy = table.Column<string>(nullable: true),
+                    company = table.Column<string>(nullable: true),
+                    phoneNum = table.Column<string>(nullable: true),
+                    dateTimeCreated = table.Column<string>(nullable: true),
+                    purpose = table.Column<string>(nullable: true),
+                    details = table.Column<string>(nullable: true),
+                    notes = table.Column<string>(nullable: true),
+                    adress = table.Column<string>(nullable: true),
+                    emergencyWork = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BasicInfos", x => x.idd);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Teams",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teams", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TeamUsers",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    name = table.Column<string>(nullable: true),
+                    lastname = table.Column<string>(nullable: true),
+                    TeamIdd = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeamUsers", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -161,6 +217,94 @@ namespace PUSGSVeb2.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "WorkRequests",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    basicinfoidd = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkRequests", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_WorkRequests_BasicInfos_basicinfoidd",
+                        column: x => x.basicinfoidd,
+                        principalTable: "BasicInfos",
+                        principalColumn: "idd",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Equipments",
+                columns: table => new
+                {
+                    idd = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    BasicInfoId = table.Column<int>(nullable: false),
+                    name = table.Column<string>(nullable: true),
+                    type = table.Column<string>(nullable: true),
+                    coordinate = table.Column<string>(nullable: true),
+                    adress = table.Column<string>(nullable: true),
+                    WorkRequestid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Equipments", x => x.idd);
+                    table.ForeignKey(
+                        name: "FK_Equipments_WorkRequests_WorkRequestid",
+                        column: x => x.WorkRequestid,
+                        principalTable: "WorkRequests",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HystoryOfChanges",
+                columns: table => new
+                {
+                    idd = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    BasicInfoId = table.Column<int>(nullable: false),
+                    name = table.Column<string>(nullable: true),
+                    lastname = table.Column<string>(nullable: true),
+                    dateofchanges = table.Column<string>(nullable: true),
+                    status = table.Column<string>(nullable: true),
+                    WorkRequestid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HystoryOfChanges", x => x.idd);
+                    table.ForeignKey(
+                        name: "FK_HystoryOfChanges_WorkRequests_WorkRequestid",
+                        column: x => x.WorkRequestid,
+                        principalTable: "WorkRequests",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Multimedia",
+                columns: table => new
+                {
+                    idd = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    BasicInfoId = table.Column<int>(nullable: false),
+                    filename = table.Column<string>(nullable: true),
+                    WorkRequestid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Multimedia", x => x.idd);
+                    table.ForeignKey(
+                        name: "FK_Multimedia_WorkRequests_WorkRequestid",
+                        column: x => x.WorkRequestid,
+                        principalTable: "WorkRequests",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -199,6 +343,26 @@ namespace PUSGSVeb2.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipments_WorkRequestid",
+                table: "Equipments",
+                column: "WorkRequestid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HystoryOfChanges_WorkRequestid",
+                table: "HystoryOfChanges",
+                column: "WorkRequestid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Multimedia_WorkRequestid",
+                table: "Multimedia",
+                column: "WorkRequestid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WorkRequests_basicinfoidd",
+                table: "WorkRequests",
+                column: "basicinfoidd");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -219,10 +383,31 @@ namespace PUSGSVeb2.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Equipments");
+
+            migrationBuilder.DropTable(
+                name: "HystoryOfChanges");
+
+            migrationBuilder.DropTable(
+                name: "Multimedia");
+
+            migrationBuilder.DropTable(
+                name: "Teams");
+
+            migrationBuilder.DropTable(
+                name: "TeamUsers");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "WorkRequests");
+
+            migrationBuilder.DropTable(
+                name: "BasicInfos");
         }
     }
 }

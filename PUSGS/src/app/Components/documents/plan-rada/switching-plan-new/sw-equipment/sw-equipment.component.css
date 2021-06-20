@@ -1,10 +1,8 @@
 .oprema
 {
     position: relative;
-    margin-left: 600px;
+    margin-left: 350px;
     top:-200px;
-    left: 900px;
-    width: 400px;
 }
 
 .labelaizbor
@@ -18,17 +16,18 @@
     width: 80px;
     height: 40px;
     margin-left: 10px;
+    font-size: 20px;
 }
 .btndodaj
 {
     position: relative;
-    top: 2px;
+    top: 60px;
     width: 80px;
     height: 40px;
     font-style: italic;
     font-size: 18px;
-    left: 20px;
-    background-color: grey;
+    left: -190px;   
+
 }
 
 .btndodaj:hover{
@@ -36,62 +35,54 @@
     transition-duration: 0.4s;
 }
 
-.tabela {
+.table
+{
     position: relative;
-    left: 300px;
-    top: -190px;
-    width: 1000px;
-    
-  }
-  
-  .mat-form-field {
-    width: 100%;
-  }
-  
-  td, th {
-    width: 16.7%;
-    padding-right: 90px;
+    left: 350px;
+    width: 1100px;
+    top:-230px;
+    border:rgb(209, 203, 203);
+    border-width: 2px;
+    border-style: solid;
+
+}
+
+th
+{
+    position: relative;
     font-size: 20px;
-  }
+    font-weight: bold;
+    width: 500px;
+    text-align: left;  
+}
 
-  .ss{
-      position: relative;
-      left: 100px;
-  }
-  .filter{
-      width: 900px;
-      height: 50px;
-      font-size: 20px;
-  }
-
-.naslov
+td
 {
     position: relative;
-    left: 600px;
-    top: -200px;
+    font-size: 20px;
+    text-align: left;
+    border: 0cm;
+}
+
+
+.blackArrow
+{
+    position: relative;
+    top: 20px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-style: none;
+}
+
+.arrow
+{
+    width: 0px;
+    height: 0px;
     font-size: 40px;
-    width: 230px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: -15px;
+    left: -10px; 
 }
-
-.dugmadi
-{
-  position: relative;
-  left: 600px;
-  width: 500px;
-  top: -150px;
-  height: 100px;
-}
-
-.add
-{
-  width: 150px;
-  height: 50px;
-}
-
-.cancel
-{
-  width: 150px;
-  height: 50px;
-  margin-left: 150px;
-}
-

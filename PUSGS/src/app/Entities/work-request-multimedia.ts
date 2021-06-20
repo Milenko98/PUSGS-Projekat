@@ -1,3 +1,8 @@
 export class WorkRequestMultimedia {
-    files:File[];
+    // files:File[];
+    // filename: string[];
+
+     file:File;
+     filename: string;
+     id: string;
 }

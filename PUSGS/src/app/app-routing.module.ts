@@ -33,6 +33,7 @@ import { WarningNotificationsComponent } from './Components/notification/warning
 import { MapComponent } from './Components/map/map.component';
 import { TeamsComponent } from './Components/teams/teams.component';
 import { NewTeamComponent } from './Components/teams/new-team/new-team.component';
+import { LoginGuard } from './Guards/login.guard';
 
 const routes: Routes = [ {
   path: "",
@@ -46,7 +47,7 @@ const routes: Routes = [ {
 
 {
   path: "dashboard",
-  component: DashboardComponent
+  component: DashboardComponent, canActivate:[LoginGuard]
 },
 
 {
