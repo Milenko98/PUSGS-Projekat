@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PUSGSVeb2.Migrations
 {
-    public partial class Dodavanjeuserworkrequestiteamtabela : Migration
+    public partial class Dodavanjetabela : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,7 +48,9 @@ namespace PUSGSVeb2.Migrations
                     Role = table.Column<string>(nullable: true),
                     Picture = table.Column<string>(nullable: true),
                     DateOfBirth = table.Column<DateTime>(nullable: true),
-                    Location = table.Column<string>(nullable: true)
+                    Location = table.Column<string>(nullable: true),
+                    verifikovan = table.Column<bool>(nullable: true),
+                    odbijen = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {

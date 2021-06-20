@@ -88,12 +88,13 @@
                         <div class="example-container">
                             <h2>Choose team members</h2>
 
-                            <div cdkDropList [cdkDropListData]="this.todo" class="example-list"
+                            <div cdkDropList [cdkDropListData]="todo" class="example-list"
                                 (cdkDropListDropped)="drop($event)">
                                 <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}
                                     {{item.lastname}}
                                 </div>
                             </div>
+                            <div *ngIf="todo.length == 0" style="color: red;">Nema registrovanih clanova tima!</div>
                         </div>
 
                         <div class="example-container">
@@ -103,8 +104,7 @@
                                 (cdkDropListDropped)="drop($event)">
                                 <div class="example-box" *ngFor="let item of done" cdkDrag>{{item.name}}
                                     {{item.lastname}}
-                                </div>
-                                
+                                </div>                 
                             </div>
                             <div *ngIf="done.length == 0" style="color: red;">Morate odabrati clanove tima!</div>
                         </div>

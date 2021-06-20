@@ -59,13 +59,20 @@ onSubmit(){
   this.user.picture = this.courseForm.value.slika;
   this.user.dateofbirth = this.courseForm.value.dateofbirth;
   this.user.location = this.courseForm.value.location;
+  this.user.verifikovan = false;
+  this.user.verifikovan = false;
+  if(this.user.role != "Administrator")
+  localStorage.setItem('VerifikacijaEmail',this.user.email);  
+  localStorage.setItem('uloga',this.user.role);
+  console.log(localStorage);
 
   this.userServise.register(this.user).subscribe(
     (res: any) => {
       if (res.succeeded) {
         //this.userService.formModel.reset();
         this.toastr.success('New user created!', 'Registration successful.');
-        this.toastr.info("Wait for administrator check your data...", "Notification!");
+        if(localStorage.getItem('uloga') != "Administrator")
+        this.toastr.info("Wait for administrator check your data...", "Notification!");      
          this.router.navigate(['/login']);        
       } else {
         res.errors.forEach(element => {

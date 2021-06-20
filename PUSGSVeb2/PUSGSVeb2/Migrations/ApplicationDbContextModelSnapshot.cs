@@ -364,6 +364,10 @@ namespace PUSGSVeb2.Migrations
 
                     b.Property<string>("Role");
 
+                    b.Property<bool>("odbijen");
+
+                    b.Property<bool>("verifikovan");
+
                     b.ToTable("User");
 
                     b.HasDiscriminator().HasValue("User");

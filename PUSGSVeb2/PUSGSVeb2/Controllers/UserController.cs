@@ -39,47 +39,73 @@ namespace PUSGSVeb2.Controllers
 
         [HttpPost]
         [Route("Register")]
-        //POST : /api/User/Register
         public async Task<Object> Register(UserDB model)
         {
-            //model.Username = model.Email;
-            var user = new User
-            {
-                UserName = model.Username,
-                Firstname = model.Firstname,
-                Lastname = model.Lastname,
-                Email = model.Email,
-                Password = model.Password,
-                Role = model.Role,
-                Picture = model.Picture,
-                DateOfBirth = model.DateOfBirth,
-                Location = model.Location
-            };
             try
             {
-                var result = await _userManager.CreateAsync(user, user.Password);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
+                var lista = await _context.ApplicationUsers.ToListAsync();
 
-                throw ex;
+                if (lista.Count != 0)
+                {
+                     var userr =  lista.Any(e => e.Email == model.Email);
+
+                    if (userr)
+                    {
+                        return BadRequest();
+                    }
+                }
+                var user = new User
+                {
+                    UserName = model.Username,
+                    Firstname = model.Firstname,
+                    Lastname = model.Lastname,
+                    Email = model.Email,
+                    Password = model.Password,
+                    Role = model.Role,
+                    Picture = model.Picture,
+                    DateOfBirth = model.DateOfBirth,
+                    Location = model.Location,
+                    verifikovan = model.verifikovan,
+                    odbijen = model.odbijen
+                };
+                try
+                {
+                    var result = await _userManager.CreateAsync(user, user.Password);
+                    return Ok(result);
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+            catch (Exception e)
+            {
+                string s = e.Message;
+                return BadRequest();
             }
         }
 
         [HttpPost]
         [Route("Login")]
-        //POST : /api/User/Login
         public async Task<IActionResult> Login(UserLogin model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
-            {
-                //if (user.EmailConfirmed == false)
-                //{
-                //    return BadRequest(new { message = "Morate da aktivirate Vas nalog, link je poslat na Vas mejl." });
-                //}
 
+            if (user == null || await _userManager.CheckPasswordAsync(user, model.Password) == false)
+            {
+                return Ok("Pogresna lozinka ili username.");
+            }
+            else
+            {
+                if(user.odbijen == true && user.Role != "Administrator")
+                {
+                    return Ok("Odbijen si.");
+                }
+                else if (user.verifikovan == false && user.Role != "Administrator")
+                {
+                    return Ok("Niste verifikovani.");
+                }
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
@@ -88,15 +114,12 @@ namespace PUSGSVeb2.Controllers
                         new Claim("Roles", user.Role.ToString())
                     }),
                     Expires = DateTime.UtcNow.AddDays(1),
-                    // SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
                 return Ok(new { token, model.Email, user.Role });
             }
-            else
-                return BadRequest(new { message = "Username or password is incorrect." });
         }
 
 
@@ -126,8 +149,6 @@ namespace PUSGSVeb2.Controllers
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Expires = DateTime.UtcNow.AddMinutes(5),
-                    //Key min: 16 characters
-                    // SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
@@ -172,10 +193,33 @@ namespace PUSGSVeb2.Controllers
         {
             List<User> users = new List<User>();
             List<UserFront> usersFront = new List<UserFront>();
+            List<TeamUser> UseriUTimu = new List<TeamUser>();
+            List<User> sviUseri = new List<User>();
+            List<User> useriBezTimova = new List<User>();
 
-            users = await _userManager.Users.ToListAsync();
-            
-            foreach(var item in users)
+            sviUseri = await _userManager.Users.ToListAsync();
+
+            UseriUTimu = await _context.TeamUsers.ToListAsync();
+
+            foreach (var item in sviUseri)
+            {
+                useriBezTimova.Add(item);
+            }
+
+            foreach (var item2 in UseriUTimu)
+            {
+                foreach (var item in sviUseri)
+                {
+                    if (item.Firstname == item2.name && item.Lastname == item2.lastname)
+                    {
+                        useriBezTimova.Remove(item);
+                        break;
+                    }
+                }
+            }
+
+
+            foreach (var item in useriBezTimova)
             {
                 if (item.Role == "Clan ekipe")
                 {
@@ -187,6 +231,106 @@ namespace PUSGSVeb2.Controllers
             }
 
             return usersFront;
+        }
+
+
+
+        [HttpGet]
+        [Route("GetUsersForVerification")]
+        public async Task<ActionResult<IEnumerable<UserDB>>> GetUsersForVerification()
+        {
+            List<User> useri = new List<User>();
+            List<UserDB> uf = new List<UserDB>();
+
+            useri = await _userManager.Users.Where(e => e.Role != "Administrator").ToListAsync();
+
+            if (useri != null && useri.Count != 0)
+            {
+                foreach (var item in useri)
+                {
+                    UserDB u = new UserDB();
+                    u.Username = item.UserName;
+                    u.Firstname = item.Firstname;
+                    u.Lastname = item.Lastname;
+                    u.Email = item.Email;
+                    u.verifikovan = item.verifikovan;
+                    u.odbijen = item.odbijen;
+                    uf.Add(u);
+                }
+            }
+            return uf;
+        }
+
+        [HttpPost]
+        [Route("ApproveUser/{email}")]
+        public async Task<ActionResult<string>> ApproveUser(string email)
+        {
+            List<User> useri = new List<User>();
+            User u = new User();
+            useri = await _userManager.Users.ToListAsync();
+
+            foreach (var item in useri)
+            {
+                if (item.Email == email)
+                {
+                    if(item.odbijen == true)
+                    {
+                        return Ok(null);
+                    }
+                    else if(item.verifikovan == true)
+                    {
+                        return Ok(null);
+                    }
+                    item.verifikovan = true;
+                    u = item;
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
+            if (u != null)
+            {
+                return Ok(u);
+            }
+            return Ok(null);
+        }
+
+        [HttpPost]
+        [Route("DenyUser/{email}")]
+        public async Task<ActionResult<string>> DenyUser(string email)
+        {
+            try
+            {
+                List<User> useri = new List<User>();
+                User u = new User();
+                useri = await _userManager.Users.ToListAsync();
+
+                foreach (var item in useri)
+                {
+                    if (item.Email == email)
+                    {
+                        if (item.verifikovan == true || item.odbijen == true)
+                        {
+                            return Ok("verifikovan");
+                        }
+                        item.odbijen = true;
+                        u = item;
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+
+                if (u != null)
+                {
+                    return Ok(u);
+                }
+                return Ok(null);
+            }
+            catch(Exception e)
+            {
+                string s = e.Message;
+                return Ok(null);
+            }
         }
     }
 }

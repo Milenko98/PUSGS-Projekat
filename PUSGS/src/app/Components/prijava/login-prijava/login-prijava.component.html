@@ -132,8 +132,8 @@
           <mat-error *ngIf="form.controls['Password'].invalid">Please enter a valid password</mat-error>
         </mat-form-field>
 
-        <span class="forgot-password"><a routerLink="/dashboard">Forgot password?</a></span>
-        <br>
+        <!-- <span class="forgot-password"><a routerLink="/verifikacija">Check status verifications</a></span>
+        <br> -->
         <span class="createaccount"><a routerLink="/registration">Create account</a></span>
         <button [disabled]="!form.valid || formSubmitted" mat-raised-button color="primary" type="submit">Login</button>
       </form>
@@ -148,8 +148,8 @@
 
     </mat-card>
   </div>
-  <button mat-button type="button" class="btn btnreport btn-primary">
+  <!-- <button mat-button type="button" class="btn btnreport btn-primary">
     <mat-icon>call</mat-icon>Report outage
-  </button>
+  </button> -->
 
 </div>

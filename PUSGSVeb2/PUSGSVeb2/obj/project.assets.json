@@ -12553,11 +12553,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Milenko\\Desktop\\Stabilna verzija PUSGS\\PUSGSVeb2\\PUSGSVeb2\\PUSGSVeb2.csproj",
+      "projectUniqueName": "C:\\Users\\Milenko\\Desktop\\Veb2 Lokalni\\PUSGS-Projekat\\PUSGSVeb2\\PUSGSVeb2\\PUSGSVeb2.csproj",
       "projectName": "PUSGSVeb2",
-      "projectPath": "C:\\Users\\Milenko\\Desktop\\Stabilna verzija PUSGS\\PUSGSVeb2\\PUSGSVeb2\\PUSGSVeb2.csproj",
+      "projectPath": "C:\\Users\\Milenko\\Desktop\\Veb2 Lokalni\\PUSGS-Projekat\\PUSGSVeb2\\PUSGSVeb2\\PUSGSVeb2.csproj",
       "packagesPath": "C:\\Users\\Milenko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Milenko\\Desktop\\Stabilna verzija PUSGS\\PUSGSVeb2\\PUSGSVeb2\\obj\\",
+      "outputPath": "C:\\Users\\Milenko\\Desktop\\Veb2 Lokalni\\PUSGS-Projekat\\PUSGSVeb2\\PUSGSVeb2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -13,25 +13,6 @@ import { UserService } from 'src/app/Services/user.service';
 export class LoginPrijavaComponent implements OnInit {
 
   hide: boolean = true;
-/*
-  courseForm!: FormGroup;
-
-  constructor(private fb:FormBuilder) { }
-
-  ngOnInit(): void {
-    this.initForm();
-  }
-
-  onSubmit(){
-    alert("Uspesna registracija");
-  }
-
-  private initForm() {
-    this.courseForm = this.fb.group({     
-      email: new FormControl('', [Validators.required,Validators.email]),    
-      lozinka: new FormControl('',[Validators.required,Validators.pattern('[a-z A-Z][a-z A-Z 0-9]+')]),
-    });
-  }*/
 
   form: FormGroup;
   socialUser: SocialUser;
@@ -52,6 +33,13 @@ export class LoginPrijavaComponent implements OnInit {
           this.socialUser = user;
           this.isLoggedin = (user != null);
         });
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('uloga');
+
+        console.log(localStorage);
+        //localStorage.removeItem('VerifikacijaEmail');
         
     }
 
@@ -59,10 +47,11 @@ export class LoginPrijavaComponent implements OnInit {
       this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(socialusers=>{
         console.log(socialusers);  
       this.userService.FacebookLogin(socialusers).subscribe((res:any)=>{
-        //localStorage.setItem('token', res.authToken);
+        localStorage.setItem('token', "token");
         //localStorage.setItem('userName', res.userName);
-        //localStorage.setItem('uloga', res.uloga);
+        localStorage.setItem('uloga', "Potrosac");
         this.router.navigateByUrl('/dashboard');
+        console.log(localStorage.getItem('uloga'));
       });
       console.log(socialusers); 
     });
@@ -74,30 +63,16 @@ export class LoginPrijavaComponent implements OnInit {
         this.userService.GoogleLogin(socialusers).subscribe((res:any)=>{
           localStorage.setItem('token', res.token);
           localStorage.setItem('userName', res.userName);
-          localStorage.setItem('uloga', res.uloga);
+          localStorage.setItem('uloga', "Potrosac");
           this.router.navigateByUrl('/dashboard');
+          console.log(localStorage.getItem('uloga'));
         });
         console.log(socialusers); 
+        
       });
     }
 
     onSubmit() {
-        // this.formSubmitted = true;
-
-        // if (this.form.valid) {
-        //     let username = this.form.controls['email'].value;
-        //     let password = this.form.controls['password'].value;
-
-        //     //let user$ = this.authenticationService.login(username, password);
-
-        //     //user$.subscribe(
-        //         //(data: any) => console.log(data),
-        //         err => console.error(err)
-        //    // );
-        // } else {
-        //     console.log("The form is NOT valid");
-        //     this.formSubmitted = false;
-        // }
 
         this.userService.login(this.form.value).subscribe(
           (res: any) => {
@@ -105,15 +80,20 @@ export class LoginPrijavaComponent implements OnInit {
             localStorage.setItem('token', res.token);
             localStorage.setItem('userName', res.email);
             localStorage.setItem('uloga', res.role);
+            // if(localStorage.getItem('VerifikacijaEmail')!= null && localStorage.getItem('uloga') != "Administrator"){
+            //   this.toastr.error("Wait for administrator approves!","Error!");
+            //   this.router.navigateByUrl('/login');
+            // }
+            //else
             this.router.navigateByUrl('/dashboard');
           },
           err => {
-            if (err.status == 400)
-            
-              this.toastr.error('Incorrect username or password.', 'Authentication failed.', {
-                timeOut: 8000,
-               // positionClass: 'toast-top-left',
-              });
+            if (err.error.text === "Pogresna lozinka ili username.")   
+              this.toastr.error("Incorrect username or password!", "Authentication failed.");
+            else if(err.error.text === "Odbijen si.")
+              this.toastr.error("Admin rejected you!", "Error!");
+            else if(err.error.text === "Niste verifikovani.")
+              this.toastr.error("You are not verified.Wait for admin to verify you!","Error!");
             else
               console.log(err);
           }

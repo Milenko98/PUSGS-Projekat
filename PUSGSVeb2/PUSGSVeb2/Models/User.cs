@@ -22,5 +22,9 @@ namespace PUSGSVeb2.Models
         public DateTime DateOfBirth { get; set; }
 
         public string Location { get; set; }
+
+        public bool verifikovan { get; set; }
+
+        public bool odbijen { get; set; }
     }
 }

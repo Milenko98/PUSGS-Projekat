@@ -10,8 +10,8 @@ using PUSGSVeb2.Models;
 namespace PUSGSVeb2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210620015527_Dodavanje user, workrequest i team tabela")]
-    partial class Dodavanjeuserworkrequestiteamtabela
+    [Migration("20210620224852_Dodavanje tabela")]
+    partial class Dodavanjetabela
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -365,6 +365,10 @@ namespace PUSGSVeb2.Migrations
                     b.Property<string>("Picture");
 
                     b.Property<string>("Role");
+
+                    b.Property<bool>("odbijen");
+
+                    b.Property<bool>("verifikovan");
 
                     b.ToTable("User");
 

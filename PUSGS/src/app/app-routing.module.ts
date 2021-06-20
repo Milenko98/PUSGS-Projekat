@@ -34,6 +34,10 @@ import { MapComponent } from './Components/map/map.component';
 import { TeamsComponent } from './Components/teams/teams.component';
 import { NewTeamComponent } from './Components/teams/new-team/new-team.component';
 import { LoginGuard } from './Guards/login.guard';
+import { WorkrequestGuard } from './Guards/workrequest.guard';
+import { TeamGuard } from './Guards/team.guard';
+import { VerifikacijaComponent } from './Components/prijava/verifikacija/verifikacija.component';
+import { VerifikacijaGuard } from './Guards/verifikacija.guard';
 
 const routes: Routes = [ {
   path: "",
@@ -159,7 +163,7 @@ const routes: Routes = [ {
 
 {
   path: "workRequest",
-  component: WorkRequestComponent,
+  component: WorkRequestComponent,canActivate:[WorkrequestGuard],
 
   children:[
   ]
@@ -189,13 +193,18 @@ const routes: Routes = [ {
 },
 
 {
+  path: "verifikacija",
+  component: VerifikacijaComponent, canActivate:[VerifikacijaGuard]
+},
+
+{
   path: "map",
   component: MapComponent
 },
 
 {
   path: "teams",
-  component: TeamsComponent
+  component: TeamsComponent, canActivate:[TeamGuard]
 },
 {
   path: "NewTeam",

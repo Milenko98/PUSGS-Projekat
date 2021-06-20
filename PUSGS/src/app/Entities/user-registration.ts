@@ -9,6 +9,8 @@ export class UserRegistration {
     picture: string;
     dateofbirth: Date;
     location: string;
+    verifikovan: boolean;
+    odbijen: boolean;
 
     public UserRegistration(){}
 

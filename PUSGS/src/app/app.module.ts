@@ -89,6 +89,7 @@ import { ApproveDialogComponent } from './Components/documents/work-request/tabl
 import { CancelDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/cancel-dialog/cancel-dialog.component';
 import { DenyDialogComponent } from './Components/documents/work-request/table-buttons/work-request-new/work-request-menu/wr-history-of-state-changes/deny-dialog/deny-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
+import { VerifikacijaComponent } from './Components/prijava/verifikacija/verifikacija.component';
 
 
 
@@ -151,7 +152,8 @@ import {HttpClientModule} from '@angular/common/http';
     DialogEditTeamComponent,
     ApproveDialogComponent,
     CancelDialogComponent,
-    DenyDialogComponent
+    DenyDialogComponent,
+    VerifikacijaComponent
   ],
 
   entryComponents:[

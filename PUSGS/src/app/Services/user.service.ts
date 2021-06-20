@@ -41,4 +41,20 @@ export class UserService {
     };
     return this.http.post(this.BaseURI + '/User/SocialLogin',body);
   }
+
+  GetUsersForVerification()
+  {
+    return this.http.get<UserRegistration>(this.BaseURI + '/User/GetUsersForVerification');
+  }
+
+  ApproveUser(email: string)
+  {
+    return this.http.post(this.BaseURI + '/User/ApproveUser/'+email,null);
+  }
+
+  DenyUser(email: string)
+  {
+    return this.http.post(this.BaseURI + '/User/DenyUser/'+email,null);
+  }
+
 }

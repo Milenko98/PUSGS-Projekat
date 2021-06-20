@@ -147,6 +147,16 @@ body {
   color: white;
 }
 
+.surpris2{
+  position: relative;
+  display: inline-block;
+  margin-left: 10%;
+  margin-top: 10%;
+  width:5px;
+  font-size: 30px;
+  color: white;
+}
+
 .friends{
   display: flex;
   position: relative;
